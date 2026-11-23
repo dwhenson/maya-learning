@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en-GB" data-learner="Maya">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brackets as Rectangles</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/expr.js"></script>
+<script src="../assets/area-model.js"></script>
+<script src="../assets/drag.js"></script>
+<script src="../assets/sounds.js"></script>
+<script src="../assets/lesson.js"></script>
+<script src="../assets/whimsy.js"></script>
+<script src="../assets/tiles.js"></script>
+<script src="../assets/distribute.js"></script>
+<script src="../assets/sort.js"></script>
+<script src="../assets/practice.js"></script>
+<script src="../assets/quiz.js"></script>
+</head>
+<body>
+<main>
+
+<header class="hero">
+  <p class="kicker">Maya's maths · Lesson 1</p>
+  <h1>Brackets are <span data-sparkles>rectangles</span> <span class="wiggle">🟪</span></h1>
+  <p class="lede">Hi Maya! 👋 Today you'll crack why brackets work. Watch a 1-minute video, build brackets out of tiles, then try some puzzles. About 20 minutes.</p>
+  <p class="meta">🔊 There are little sound effects. Tap the speaker in the corner to turn them off.</p>
+</header>
+
+<nav class="journey" aria-label="Lesson steps">
+  <a href="#watch" data-step="watch" title="Watch">🎬</a>
+  <a href="#build" data-step="tiles" title="Build with tiles">🧱</a>
+  <a href="#drag" data-step="drag" title="Drag the number">👉</a>
+  <a href="#spot" data-step="spot" title="Spot the mistake">🕵️</a>
+  <a href="#practise" data-step="practice" title="Practise">✏️</a>
+  <a href="#remember" data-step="quiz" title="Remember it">🧠</a>
+</nav>
+
+<!-- 1. WATCH -->
+<section class="card" id="watch">
+  <div class="card-head"><span class="bubble">🎬</span><h2>Watch first</h2><span class="chip">1 min</span></div>
+  <p>Tap ▶ to play. Watch what happens to <em>both</em> things inside the bracket.</p>
+  <p class="meta">The last few examples have minus signs. Don't worry about those yet, they're next lesson!</p>
+  <button class="video short" data-yt="4eXVBUF_TF8" data-step="watch" data-label="Expanding single brackets · 51 sec"></button>
+  <details class="reveal">
+    <summary>🍿 Want more? Two more videos and BBC Bitesize</summary>
+    <div class="videos">
+      <button class="video" data-yt="ddsDEIOncQo" data-label="Brackets with algebra tiles (NCETM) · 2½ min"></button>
+      <button class="video" data-yt="ZJA1qz4XovY" data-label="Expanding brackets (Corbettmaths) · 3 min"></button>
+      <a class="link-card" href="https://www.bbc.co.uk/bitesize/articles/zbkyb82" target="_blank" rel="noopener">
+        <span class="icon">📺</span><span><strong>BBC Bitesize: Multiplying brackets (KS3)</strong><span>Short video and examples on the BBC site</span></span>
+      </a>
+    </div>
+    <p class="meta">The Corbettmaths one moves on to minus signs near the end. That's Lesson 2, so stop there if you like.</p>
+  </details>
+</section>
+
+<!-- 2. BUILD -->
+<section class="card" id="build">
+  <div class="card-head"><span class="bubble">🧱</span><h2>Build it with tiles</h2><span class="chip">4 min</span></div>
+  <p><span class="m">3(<i>x</i> + 4)</span> means <strong>3 lots of</strong> <span class="m">(<i>x</i> + 4)</span>. Let's build it out of tiles:</p>
+  <div class="box" style="display:flex;gap:1.2rem;flex-wrap:wrap;align-items:center;justify-content:center">
+    <span><span class="tile tx" style="width:72px;height:30px">x</span> &nbsp;is worth <i>x</i>, a number we don't know yet</span>
+    <span><span class="tile t1" style="width:30px;height:30px">1</span> &nbsp;is worth 1</span>
+  </div>
+  <div id="tiles"></div>
+  <p class="meta" style="text-align:center">Done one? Hit 🎲 <strong>New numbers</strong> and build another.</p>
+</section>
+
+<!-- 3. DRAG THE MULTIPLIER -->
+<section class="card" id="drag">
+  <div class="card-head"><span class="bubble">👉</span><h2>Drag the number</h2><span class="chip">3 min</span></div>
+  <div class="box key">
+    <span class="label">⭐ The big idea</span>
+    The number outside the bracket multiplies <strong>every</strong> term inside.
+    <p class="meta" style="margin-bottom:0">A <strong>term</strong> is each separate bit inside the bracket. In <span class="m">3(<i>x</i> + 4)</span> the terms are <span class="m"><i>x</i></span> and <span class="m">4</span>.<br>
+    And remember: <span class="m">3 × <i>x</i></span> is written <span class="m">3<i>x</i></span>.</p>
+  </div>
+  <p><strong>How to play:</strong> drag the pink number onto a term inside the bracket (or just tap the term). Pick the right answer. Then do the other term. Get through 5 to collect 5 stars ⭐</p>
+  <div id="distribute"></div>
+</section>
+
+<!-- 4. SPOT THE MISTAKE -->
+<section class="card" id="spot">
+  <div class="card-head"><span class="bubble">🕵️</span><h2>Spot the mistake</h2><span class="chip">3 min</span></div>
+  <p>Some of these cards have been expanded correctly and some have a mistake. Can you tell which?</p>
+  <div class="box">
+    <span class="label">🔍 Detective trick</span>
+    Swap the letter for <strong>10</strong> on <strong>both sides</strong> of the = sign and work each side out. Same number? Probably right. Different? Definitely wrong!
+    <p class="meta" style="margin-bottom:0"><span class="m">2(<i>x</i> + 5) = 2<i>x</i> + 10</span> → left side <span class="m">2 × 15 = 30</span>, right side <span class="m">20 + 10 = 30</span> ✓ they match</p>
+  </div>
+  <p><strong>How to play:</strong> drag each card into <strong>✅ Correct</strong> or <strong>🙈 Oops</strong> (or tap a card, then tap a box).</p>
+  <div id="sort"></div>
+</section>
+
+<!-- 5. PRACTISE -->
+<section class="card" id="practise">
+  <div class="card-head"><span class="bubble">✏️</span><h2>Your turn</h2><span class="chip">5 min</span></div>
+  <p>Over to you, Maya. No tiles this time! Expand each bracket and type the answer without brackets, like <span class="m">3x + 12</span>. Press <strong>Enter</strong> or <strong>Check</strong>.</p>
+  <p class="meta">Get 8 right to finish. If you slip, you'll see a hint and the rectangle picture to help.</p>
+  <div id="practice"></div>
+</section>
+
+<!-- 6. REMEMBER -->
+<section class="card" id="remember">
+  <div class="card-head"><span class="bubble">🧠</span><h2>Remember it</h2><span class="chip">2 min</span></div>
+  <p>Three last questions. Tap the answer you think is right. No scrolling back up! Answering from memory is what makes it stick. 💪</p>
+
+  <div class="quiz" data-answer="2" data-hint="The 6 has to multiply <strong>both</strong> terms inside. What's 6 × 3?" data-why="The 6 multiplies both terms: 6 × y = 6y and 6 × 3 = 18.">
+    <p>What is <span class="m">6(<i>y</i> + 3)</span> expanded?</p>
+    <ol>
+      <li><span class="m">6<i>y</i> + 3</span></li>
+      <li><span class="m">6<i>y</i> + 9</span></li>
+      <li><span class="m">6<i>y</i> + 18</span></li>
+      <li><span class="m"><i>y</i> + 18</span></li>
+    </ol>
+  </div>
+
+  <div class="quiz" data-answer="0" data-hint="Think back to the tiles: what did the 4 rows do to <strong>every</strong> tile in the bracket?" data-why="Like the tiles: the 4 makes 4 rows, so every tile inside gets copied 4 times.">
+    <p>Why does <span class="m">4(<i>x</i> + 3)</span> give <span class="m">4<i>x</i> + 12</span>?</p>
+    <ol>
+      <li>The 4 multiplies both of the terms</li>
+      <li>The 4 multiplies just the first term</li>
+      <li>You add the 4 to each term</li>
+      <li>The 4 and 3 are added together</li>
+    </ol>
+  </div>
+
+  <div class="quiz" data-answer="3" data-hint="Work out each side separately. Left: 7 × (10 + 5). Right: 7 × 10 + 5." data-why="7(10 + 5) = 7 × 15 = 105, but 7 × 10 + 5 = 75. They don't match, so 7x + 5 is wrong. It should be 7x + 35.">
+    <p>Sam writes <span class="m">7(<i>x</i> + 5) = 7<i>x</i> + 5</span>. Use the detective trick with <span class="m"><i>x</i> = 10</span>. What number does each side give?</p>
+    <ol>
+      <li>Left 75, right 75</li>
+      <li>Left 105, right 105</li>
+      <li>Left 70, right 75</li>
+      <li>Left 105, right 75</li>
+    </ol>
+  </div>
+  <p class="quiz-score" style="text-align:center;font-weight:700" aria-live="polite"></p>
+</section>
+
+<div class="ask">
+  <span class="icon">💬</span>
+  <div><strong>Got a question, Maya?</strong> Ask Claude. That's what it's here for! Try "why is it called expanding?", "give me 5 harder ones" or "I keep getting this wrong, why?". No question is too small.</div>
+</div>
+
+<p class="meta" style="text-align:center;margin-top:1.5rem">📄 <a href="../reference/expanding-brackets.html">Cheat sheet</a> to print for your maths book</p>
+
+<nav class="lessons">
+  <a href="../index.html">🏠 All lessons</a>
+  <span class="meta">Next time: minus signs inside, like <span class="m">4(<i>x</i> − 3)</span> 👀</span>
+</nav>
+
+</main>
+<script>
+  const rnd = (lo, hi) => lo + Math.floor(Math.random() * (hi - lo + 1));
+  const pickLetter = () => ["x", "x", "y", "n", "m"][rnd(0, 4)];
+
+  TileBuilder.mount(document.getElementById("tiles"), { a: 3, b: 4, letter: "x", onDone: () => Lesson.done("tiles") });
+
+  Distribute.mount(document.getElementById("distribute"), {
+    rounds: 5,
+    generate: () => Distribute.single(rnd(2, 9), rnd(1, 9), pickLetter(), Math.random() < .25),
+    onDone: () => Lesson.done("drag")
+  });
+
+  Sort.mount(document.getElementById("sort"), {
+    bins: [ { id: "right", label: "✅ Correct" }, { id: "wrong", label: "🙈 Oops" } ],
+    cards: [
+      { html: "3(<i>x</i> + 4) = 3<i>x</i> + 12", bin: "right", why: "3 × <i>x</i> and 3 × 4. Both multiplied!", hint: "Swap <i>x</i> for 10 on both sides. Do they match?" },
+      { html: "5(<i>x</i> + 2) = 5<i>x</i> + 2", bin: "wrong", why: "The 5 forgot the 2! It should be 5<i>x</i> + 10.", hint: "Swap <i>x</i> for 10: the left side is 5 × 12 = 60. Does the right side make 60?" },
+      { html: "4(<i>x</i> + 3) = 4<i>x</i> + 7", bin: "wrong", why: "4 × 3 is 12, not 7. Multiply, don't add!", hint: "Look closely at the number part. Should it be 4 × 3 or 4 + 3?" },
+      { html: "2(<i>y</i> + 6) = 2<i>y</i> + 12", bin: "right", why: "2 × <i>y</i> = 2<i>y</i> and 2 × 6 = 12.", hint: "Swap <i>y</i> for 10: the left side is 2 × 16 = 32. What does the right side make?" },
+      { html: "3(5 + <i>x</i>) = 15 + 3<i>x</i>", bin: "right", why: "Sneaky one! 15 + 3<i>x</i> is the same as 3<i>x</i> + 15. Order doesn't matter when you add.", hint: "Swap <i>x</i> for 10 on both sides. Do they match?" },
+      { html: "7(<i>n</i> + 2) = <i>n</i> + 14", bin: "wrong", why: "The 7 forgot the <i>n</i>! It should be 7<i>n</i> + 14.", hint: "Swap <i>n</i> for 10: the left side is 7 × 12 = 84. Does the right side make 84?" }
+    ],
+    onDone: () => Lesson.done("spot")
+  });
+
+  Practice.mount(document.getElementById("practice"), {
+    goal: 8,
+    onFinish: () => { Lesson.done("practice"); Celebrate.burst(); },
+    generate() {
+      const a = rnd(2, 9), b = rnd(1, 9), L = pickLetter();
+      const prompt = Math.random() < .25 ? `${a}(${b} + ${L})` : `${a}(${L} + ${b})`;
+      return {
+        prompt,
+        answer: `${a}${L} + ${a * b}`,
+        diagnose(p) {
+          const has = (lc, c) => (p[L] || 0) === lc && (p["1"] || 0) === c;
+          if (has(a, b)) return `So close! You multiplied the <i>${L}</i> but the ${b} got left out. The ${a} multiplies <strong>every</strong> term.`;
+          if (has(1, a * b)) return `So close! The ${b} got multiplied but the <i>${L}</i> didn't. The ${a} multiplies <strong>every</strong> term.`;
+          if (has(a, a + b)) return `Careful: ${a} × ${b} means multiply, not add.`;
+          return null;
+        },
+        explain(box) {
+          AreaModel.render(box, {
+            outer: { label: String(a), size: Math.min(a, 5) },
+            parts: [ { label: L, size: 8, product: a + L }, { label: String(b), size: Math.max(b, 2.5), product: String(a * b) } ],
+            showTotal: true, maxWidth: 380
+          });
+        }
+      };
+    }
+  });
+
+  document.addEventListener("quiz:finished", () => Lesson.done("quiz"));
+</script>
+</body>
+</html>

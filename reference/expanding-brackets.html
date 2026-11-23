@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Expanding Brackets Reference</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/area-model.js"></script>
+<style>
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 1rem; margin: 1rem 0; }
+  @media (max-width: 520px) { table { font-size: .9rem; } th, td { padding: .4rem; } }
+  th, td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { font: 600 .75rem var(--sans); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+<p class="kicker">Reference · Expanding brackets</p>
+<h1>Expanding brackets cheat sheet</h1>
+<p class="lede">Grows as the lessons do. Print it and keep it in your maths book.</p>
+
+<h2>The rule</h2>
+<div class="box key">
+  The term outside the bracket multiplies <strong>every term</strong> inside.
+  <p class="display" style="margin-bottom:0"><span class="m"><i>a</i>(<i>b</i> + <i>c</i>) = <i>ab</i> + <i>ac</i></span></p>
+</div>
+
+<h2>The picture: area model</h2>
+<figure>
+  <div id="model"></div>
+  <figcaption><span class="m">3(<i>x</i> + 4) = 3<i>x</i> + 12</span>. The outside number is the height, the bracket is the width.</figcaption>
+</figure>
+
+<h2>🔍 Detective trick: check your answer</h2>
+<p>Swap the letter for <strong>10</strong> on both sides of the = sign and work each side out. Same number → probably right. Different → definitely wrong.</p>
+<p class="display" style="font-size:1.2rem">Left: <span class="m">3(10 + 4) = 42</span><br>Right: <span class="m">3×10 + 12 = 42</span> ✓</p>
+
+<h2>Common mistakes</h2>
+<div class="table-wrap"><table>
+  <tr><th>Wrong</th><th>Right</th><th>What went wrong</th></tr>
+  <tr><td><span class="m">3(<i>x</i> + 4) = 3<i>x</i> + 4</span></td><td><span class="m">3<i>x</i> + 12</span></td><td>Only multiplied the first term</td></tr>
+  <tr><td><span class="m">3(<i>x</i> + 4) = 3<i>x</i> + 7</span></td><td><span class="m">3<i>x</i> + 12</span></td><td>Added 3 + 4 instead of multiplying</td></tr>
+</table></div>
+
+<h2>Words</h2>
+<p><strong>Expand</strong>: rewrite without brackets by multiplying out. <strong>Term</strong>: one part of an expression, separated by + or −, like <span class="m">3<i>x</i></span> or <span class="m">12</span>.</p>
+
+<p class="meta no-print" style="margin-top:2.5rem">Lessons: <a href="../lessons/0001-brackets-as-rectangles.html">1. Brackets are rectangles</a></p>
+</main>
+<script>
+  AreaModel.render(document.getElementById("model"), {
+    outer: { label: "3", size: 3 },
+    parts: [ { label: "x", size: 8, product: "3x" }, { label: "4", size: 4, product: "12" } ],
+    showTotal: true, maxWidth: 360
+  });
+</script>
+</body>
+</html>

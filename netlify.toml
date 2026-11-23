@@ -1,0 +1,12 @@
+# Only the lessons go on the website. Notes, mission and learning records stay in the repo.
+[build]
+  command = "rm -rf dist && mkdir dist && cp -R index.html lessons assets reference dist/"
+  publish = "dist"
+
+# Always check for a fresh copy so new lessons and fixes show up straight away.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
