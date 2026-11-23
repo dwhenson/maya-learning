@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en-GB" data-learner="Maya">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Minus Signs Inside</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/expr.js"></script>
+<script src="../assets/area-model.js"></script>
+<script src="../assets/drag.js"></script>
+<script src="../assets/sounds.js"></script>
+<script src="../assets/lesson.js"></script>
+<script src="../assets/whimsy.js"></script>
+<script src="../assets/hops.js"></script>
+<script src="../assets/tiles.js"></script>
+<script src="../assets/distribute.js"></script>
+<script src="../assets/sort.js"></script>
+<script src="../assets/practice.js"></script>
+<script src="../assets/quiz.js"></script>
+</head>
+<body>
+<main>
+
+<header class="hero">
+  <p class="kicker">Maya's maths · Lesson 2</p>
+  <h1>Minus signs <span data-sparkles>inside</span> <span class="wiggle">➖</span></h1>
+  <p class="lede">Hi Maya! 👋 Last time you built <span class="m">3(<i>x</i> + 4)</span>. Today the bracket has a minus in it, like <span class="m">4(<i>x</i> − 3)</span>. One secret makes it easy: <strong>the minus sticks to the number behind it.</strong> About 20 minutes.</p>
+  <p class="meta">🔊 Tap the speaker in the corner to turn the sounds off.</p>
+</header>
+
+<nav class="journey" aria-label="Lesson steps">
+  <a href="#watch" data-step="watch" title="Watch">🎬</a>
+  <a href="#hop" data-step="hops" title="Frog hops">🐸</a>
+  <a href="#build" data-step="tiles" title="Build with tiles">🧱</a>
+  <a href="#drag" data-step="drag" title="Drag the number">👉</a>
+  <a href="#spot" data-step="spot" title="Spot the mistake">🕵️</a>
+  <a href="#practise" data-step="practice" title="Practise">✏️</a>
+  <a href="#remember" data-step="quiz" title="Remember it">🧠</a>
+</nav>
+
+<!-- 1. WATCH -->
+<section class="card" id="watch">
+  <div class="card-head"><span class="bubble">🎬</span><h2>Watch first</h2><span class="chip">1 min</span></div>
+  <p>Remember this one? Watch it again, and this time look out for the <strong>last few examples</strong>, the ones with minus signs.</p>
+  <button class="video short" data-yt="4eXVBUF_TF8" data-step="watch" data-label="Expanding single brackets · 51 sec"></button>
+  <details class="reveal">
+    <summary>🍿 Want more? Two more videos and BBC Bitesize</summary>
+    <div class="videos">
+      <button class="video" data-yt="IX4fnfbbqkk" data-label="Multiplying negatives (Corbettmaths) · 3½ min"></button>
+      <button class="video" data-yt="ZJA1qz4XovY" data-label="Expanding brackets (Corbettmaths) · 3 min"></button>
+      <a class="link-card" href="https://www.bbc.co.uk/bitesize/articles/zbkyb82" target="_blank" rel="noopener">
+        <span class="icon">📺</span><span><strong>BBC Bitesize: Multiplying brackets (KS3)</strong><span>Short video and examples on the BBC site</span></span>
+      </a>
+    </div>
+    <p class="meta">The expanding brackets video gets to minus signs near the end. That's exactly today's bit.</p>
+  </details>
+</section>
+
+<!-- 2. HOPS -->
+<section class="card" id="hop">
+  <div class="card-head"><span class="bubble">🐸</span><h2>Frog hops</h2><span class="chip">2 min</span></div>
+  <p>Warm-up! <span class="m">4 × (−3)</span> means <strong>4 lots of −3</strong>. Let's hop it out on a number line.</p>
+  <p><strong>How to play:</strong> tap <strong>Hop</strong> (or tap the frog) once for each hop. Then pick where the frog landed.</p>
+  <div id="hops"></div>
+</section>
+
+<!-- 3. BUILD -->
+<section class="card" id="build">
+  <div class="card-head"><span class="bubble">🧱</span><h2>Build it with tiles</h2><span class="chip">4 min</span></div>
+  <p>Meet the new tile. The <strong>red</strong> one is worth <strong>−1</strong>: it takes 1 away.</p>
+  <div class="box" style="display:flex;gap:1rem 1.4rem;flex-wrap:wrap;align-items:center;justify-content:center">
+    <span><span class="tile tx" style="width:72px;height:30px">x</span> &nbsp;is worth <i>x</i></span>
+    <span><span class="tile t1" style="width:30px;height:30px">1</span> &nbsp;is worth 1</span>
+    <span><span class="tile tn" style="width:30px;height:30px">−1</span> &nbsp;is worth −1</span>
+  </div>
+  <div id="tiles"></div>
+  <p class="meta" style="text-align:center">Done one? Hit 🎲 <strong>New numbers</strong> and build another.</p>
+</section>
+
+<!-- 4. DRAG THE MULTIPLIER -->
+<section class="card" id="drag">
+  <div class="card-head"><span class="bubble">👉</span><h2>Drag the number</h2><span class="chip">3 min</span></div>
+  <div class="box key">
+    <span class="label">⭐ The big idea</span>
+    The minus sign <strong>sticks to the term behind it</strong>. In <span class="m">4(<i>x</i> − 3)</span> the terms are <span class="m"><i>x</i></span> and <span class="m" style="color:var(--bad)">−3</span>.
+    <p class="meta" style="margin-bottom:0">So the 4 multiplies <span class="m"><i>x</i></span> and it multiplies <span class="m">−3</span>. Just like the frog: <span class="m">4 × (−3) = −12</span>.</p>
+  </div>
+  <p><strong>How to play:</strong> drag the pink number onto a term inside the bracket (or just tap the term). Pick the right answer. Then do the other term. Get through 5 to collect 5 stars ⭐</p>
+  <div id="distribute"></div>
+</section>
+
+<!-- 5. SPOT THE MISTAKE -->
+<section class="card" id="spot">
+  <div class="card-head"><span class="bubble">🕵️</span><h2>Spot the mistake</h2><span class="chip">3 min</span></div>
+  <p>The most common slip is <strong>losing the minus</strong>. Can you catch it?</p>
+  <div class="box">
+    <span class="label">🔍 Detective trick</span>
+    Same as last time: swap the letter for <strong>10</strong> on <strong>both sides</strong> and work each side out. Same number? Probably right. Different? Definitely wrong!
+    <p class="meta" style="margin-bottom:0"><span class="m">4(<i>x</i> − 3) = 4<i>x</i> − 12</span><br>Left: <span class="m">4 × 7 = 28</span>. Right: <span class="m">40 − 12 = 28</span> ✓ they match</p>
+  </div>
+  <p><strong>How to play:</strong> drag each card into <strong>✅ Correct</strong> or <strong>🙈 Oops</strong> (or tap a card, then tap a box).</p>
+  <div id="sort"></div>
+</section>
+
+<!-- 6. PRACTISE -->
+<section class="card" id="practise">
+  <div class="card-head"><span class="bubble">✏️</span><h2>Your turn</h2><span class="chip">5 min</span></div>
+  <p>Over to you, Maya. Expand each bracket and type the answer, like <span class="m">4x − 12</span>. Use the <strong>-</strong> key for minus. Press <strong>Enter</strong> or <strong>Check</strong>.</p>
+  <p class="meta">Get 8 right to finish. Some have a plus, like last time, so look carefully! If you slip, you'll see a hint and a picture.</p>
+  <div id="practice"></div>
+</section>
+
+<!-- 7. REMEMBER -->
+<section class="card" id="remember">
+  <div class="card-head"><span class="bubble">🧠</span><h2>Remember it</h2><span class="chip">2 min</span></div>
+  <p>Three last questions. Tap the answer you think is right. No scrolling back up! Answering from memory is what makes it stick. 💪</p>
+
+  <div class="quiz" data-answer="1" data-hint="The 5 multiplies <strong>both</strong> terms, and the minus sticks to the 4. What's 5 × (−4)?" data-why="5 × x = 5x and 5 × (−4) = −20, so it's 5x − 20.">
+    <p>What is <span class="m">5(<i>x</i> − 4)</span> expanded?</p>
+    <ol>
+      <li><span class="m">5<i>x</i> + 20</span></li>
+      <li><span class="m">5<i>x</i> − 20</span></li>
+      <li><span class="m">5<i>x</i> − 4</span></li>
+      <li><span class="m">5<i>x</i> − 9</span></li>
+    </ol>
+  </div>
+
+  <div class="quiz" data-answer="3" data-hint="Think of the red tiles: 4 rows, each with three −1 tiles. Are they worth plus or minus?" data-why="The minus belongs to the 3, so the 4 multiplies −3, giving −12. Like 4 rows of three red −1 tiles.">
+    <p>Why is <span class="m">4(<i>x</i> − 3)</span> equal to <span class="m">4<i>x</i> − 12</span> and not <span class="m">4<i>x</i> + 12</span>?</p>
+    <ol>
+      <li>The 4 is always a minus</li>
+      <li>You take 4 away from 12</li>
+      <li>Minus beats plus every time</li>
+      <li>The minus sticks to the 3</li>
+    </ol>
+  </div>
+
+  <div class="quiz" data-answer="0" data-hint="Work out each side separately. Left: 6 × (10 − 2). Right: 6 × 10 − 2." data-why="6(10 − 2) = 6 × 8 = 48, but 60 − 2 = 58. They don't match, so 6x − 2 is wrong. It should be 6x − 12.">
+    <p>Sam writes <span class="m">6(<i>x</i> − 2) = 6<i>x</i> − 2</span>. Use the detective trick with <span class="m"><i>x</i> = 10</span>. What number does each side give?</p>
+    <ol>
+      <li>Left 48, right 58</li>
+      <li>Left 58, right 48</li>
+      <li>Left 48, right 48</li>
+      <li>Left 60, right 58</li>
+    </ol>
+  </div>
+  <p class="quiz-score" style="text-align:center;font-weight:700" aria-live="polite"></p>
+</section>
+
+<div class="ask">
+  <span class="icon">💬</span>
+  <div><strong>Got a question, Maya?</strong> Ask Claude. That's what it's here for! Try "why does the minus stick to the 3?", "what about 3(5 − x)?" or "give me 5 harder ones". No question is too small.</div>
+</div>
+
+<p class="meta" style="text-align:center;margin-top:1.5rem">📄 <a href="../reference/expanding-brackets.html">Cheat sheet</a> to print for your maths book</p>
+
+<nav class="lessons">
+  <a href="0001-brackets-as-rectangles.html">← Lesson 1</a>
+  <a href="../index.html">🏠 All lessons</a>
+  <span class="meta">Next time: a minus <em>outside</em> the bracket, like <span class="m">−2(<i>x</i> + 5)</span> 👀</span>
+</nav>
+
+</main>
+<script>
+  const rnd = (lo, hi) => lo + Math.floor(Math.random() * (hi - lo + 1));
+  const pickLetter = () => ["x", "x", "y", "n", "m"][rnd(0, 4)];
+
+  Hops.mount(document.getElementById("hops"), { times: 4, step: -3, onDone: () => Lesson.done("hops") });
+
+  TileBuilder.mount(document.getElementById("tiles"), { a: 4, b: 3, letter: "x", sign: -1, onDone: () => Lesson.done("tiles") });
+
+  Distribute.mount(document.getElementById("distribute"), {
+    rounds: 5,
+    generate: () => Distribute.minus(rnd(2, 9), rnd(1, 9), pickLetter(), Math.random() < .2),
+    onDone: () => Lesson.done("drag")
+  });
+
+  Sort.mount(document.getElementById("sort"), {
+    bins: [ { id: "right", label: "✅ Correct" }, { id: "wrong", label: "🙈 Oops" } ],
+    cards: [
+      { html: "4(<i>x</i> − 3) = 4<i>x</i> − 12", bin: "right", why: "4 × <i>x</i> and 4 × (−3). The minus stayed!", hint: "Swap <i>x</i> for 10 on both sides. Do they match?" },
+      { html: "5(<i>x</i> − 2) = 5<i>x</i> + 10", bin: "wrong", why: "The minus got lost! 5 × (−2) = −10, so it's 5<i>x</i> − 10.", hint: "Swap <i>x</i> for 10: the left side is 5 × 8 = 40. Does the right side make 40?" },
+      { html: "3(<i>x</i> − 4) = 3<i>x</i> − 4", bin: "wrong", why: "The 3 forgot the 4! It should be 3<i>x</i> − 12.", hint: "Swap <i>x</i> for 10: the left side is 3 × 6 = 18. Does the right side make 18?" },
+      { html: "2(<i>y</i> − 7) = 2<i>y</i> − 14", bin: "right", why: "2 × <i>y</i> = 2<i>y</i> and 2 × (−7) = −14.", hint: "Swap <i>y</i> for 10: the left side is 2 × 3 = 6. What does the right side make?" },
+      { html: "3(<i>x</i> − 5) = 3<i>x</i> − 8", bin: "wrong", why: "3 × 5 is 15, not 8. Multiply, don't add! It's 3<i>x</i> − 15.", hint: "Look closely at the number part. Should it be 3 × 5 or 3 + 5?" },
+      { html: "7(<i>n</i> − 1) = 7<i>n</i> − 7", bin: "right", why: "7 × <i>n</i> = 7<i>n</i> and 7 × (−1) = −7.", hint: "Swap <i>n</i> for 10: the left side is 7 × 9 = 63. What does the right side make?" }
+    ],
+    onDone: () => Lesson.done("spot")
+  });
+
+  Practice.mount(document.getElementById("practice"), {
+    goal: 8,
+    onFinish: () => { Lesson.done("practice"); Celebrate.burst(); },
+    generate() {
+      const a = rnd(2, 9), b = rnd(1, 9), L = pickLetter(), r = Math.random();
+      // Mostly a(L − b); some a(b − L); a quarter are Lesson 1 style a(L + b) to keep that fresh.
+      const kind = r < .6 ? "minus" : r < .75 ? "flip" : "plus";
+      const prompt = kind === "minus" ? `${a}(${L} - ${b})` : kind === "flip" ? `${a}(${b} - ${L})` : `${a}(${L} + ${b})`;
+      const answer = kind === "minus" ? `${a}${L} - ${a * b}` : kind === "flip" ? `${a * b} - ${a}${L}` : `${a}${L} + ${a * b}`;
+      const sL = kind === "flip" ? -a : a, s1 = kind === "minus" ? -a * b : a * b;   // the right coefficients
+      return {
+        prompt, answer,
+        diagnose(p) {
+          const has = (lc, c) => (p[L] || 0) === lc && (p["1"] || 0) === c;
+          if (kind !== "plus" && has(Math.abs(sL), Math.abs(s1))) return `So close! You lost the minus sign. It sticks to the ${kind === "minus" ? b : `<i>${L}</i>`}, so keep it in your answer.`;
+          if (kind === "minus" && has(a, -b)) return `So close! The <i>${L}</i> got multiplied but the ${b} didn't. The ${a} multiplies <strong>every</strong> term, so it's ${a} × (−${b}).`;
+          if (kind === "plus" && has(a, b)) return `So close! The ${b} got left out. The ${a} multiplies <strong>every</strong> term.`;
+          if (has(sL, Math.sign(s1) * (a + b))) return `Careful: ${a} × ${b} means multiply, not add.`;
+          if (kind === "plus" && has(a, -a * b)) return `Look again: this one has a <strong>plus</strong> inside, so the answer has a plus too.`;
+          return null;
+        },
+        explain(box) {
+          const pic = document.createElement("div");
+          const note = document.createElement("p");
+          note.className = "meta";
+          if (kind === "minus") {
+            AreaModel.render(pic, {
+              outer: { label: String(a), size: Math.min(a, 5) },
+              parts: [ { label: L, size: Math.max(8, b + 3), product: a + L }, { label: String(b), size: b, product: "-" + a * b, take: true } ],
+              showTotal: true, maxWidth: 380
+            });
+            note.innerHTML = `The whole rectangle is <span class="m">${a} × <i>${L}</i> = ${a}<i>${L}</i></span>. Then cut off the striped <span class="m">${a} × ${b} = ${a * b}</span> piece. That leaves <span class="m">${a}<i>${L}</i> − ${a * b}</span>.`;
+          } else if (kind === "flip") {
+            note.innerHTML = `The ${a} multiplies both terms: <span class="m">${a} × ${b} = ${a * b}</span> and <span class="m">${a} × (−<i>${L}</i>) = −${a}<i>${L}</i></span>. So it's <span class="m">${a * b} − ${a}<i>${L}</i></span>. The minus stuck to the <i>${L}</i>.`;
+          } else {
+            AreaModel.render(pic, {
+              outer: { label: String(a), size: Math.min(a, 5) },
+              parts: [ { label: L, size: 8, product: a + L }, { label: String(b), size: Math.max(b, 2.5), product: String(a * b) } ],
+              showTotal: true, maxWidth: 380
+            });
+          }
+          box.append(pic, note);
+        }
+      };
+    }
+  });
+
+  document.addEventListener("quiz:finished", () => Lesson.done("quiz"));
+</script>
+</body>
+</html>

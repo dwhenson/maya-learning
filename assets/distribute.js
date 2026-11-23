@@ -4,9 +4,12 @@
  *
  *   Distribute.mount(el, {
  *     rounds: 5,
- *     generate: () => Distribute.single(3, 4, "x", false),   // or build your own round:
+ *     generate: () => Distribute.single(3, 4, "x", false),   // a(x + b); Distribute.minus(...) gives a(x − b)
+ *        // or build your own round:
  *        // { outside: "3", terms: [ { show: "x", product: "3x", choices: [...], hint: "..." },
  *        //                          { sign: "+", show: "4", product: "12", choices: [...], hint: "..." } ] }
+ *        // A term with sign "-" is drawn with its minus stuck inside the term box ("the sign belongs to the term"),
+ *        // and its product is the signed result, e.g. "-12".
  *     onDone() {}
  *   });
  * Needs drag.js and expr.js. Uses Celebrate from lesson.js if present.
@@ -19,6 +22,7 @@
   .ds-expr { display:flex; align-items:center; gap:.35rem; font:800 2.2rem var(--serif); }
   .ds-chip { background:var(--pop); color:#fff; border-radius:14px; padding:.05rem .65rem; box-shadow:0 4px 0 color-mix(in srgb, var(--pop) 60%, #000); }
   .ds-term { border-radius:12px; padding:.05rem .5rem; background:var(--bg); border:2px solid var(--rule); cursor:pointer; transition:background .2s; }
+  .ds-term.neg { color:var(--bad); }
   .ds-term.done { background:var(--good-soft); border-color:var(--good); cursor:default; }
   .ds-term.active { background:var(--accent-soft); border-color:var(--accent); }
   .ds-paren { font-weight:400; color:var(--muted); }
@@ -44,6 +48,27 @@
       hint: `${a} × ${b} means ${a} lots of ${b}. Multiply, don't add!` };
     const terms = numberFirst ? [numberTerm, { ...letterTerm, sign: "+" }] : [letterTerm, { ...numberTerm, sign: "+" }];
     return { outside: String(a), terms };
+  }
+
+  // A round for a(L − b), or a(b − L) when numberFirst. The minus sticks to the second term.
+  function minus(a, b, L, numberFirst) {
+    const pick2 = (right, list) => [...new Set(list.map(String))].filter(v => v !== String(right)).slice(0, 2);
+    if (!numberFirst) {
+      const letterTerm = { show: L, product: a + L, choices: [a + L, L, `${a} + ${L}`],
+        hint: `${a} × ${L} means ${a} lots of ${L}. We write it as ${a}${L}.` };
+      const right = `-${a * b}`;
+      const numberTerm = { sign: "-", show: String(b), product: right,
+        choices: [right, ...pick2(right, [a * b, `-${a + b}`, `-${b}`])],
+        hint: `The minus sticks to the ${b}, so this is ${a} lots of −${b}. Multiply ${a} × ${b}, and keep the minus.` };
+      return { outside: String(a), terms: [letterTerm, numberTerm] };
+    }
+    const numberTerm = { show: String(b), product: String(a * b),
+      choices: [String(a * b), ...pick2(a * b, [a + b, b, a * b + a])],
+      hint: `${a} × ${b} means ${a} lots of ${b}. Multiply, don't add!` };
+    const right = `-${a}${L}`;
+    const letterTerm = { sign: "-", show: L, product: right, choices: [right, a + L, `-${L}`],
+      hint: `The minus sticks to the ${L}, so this is ${a} lots of −${L}. Keep the minus.` };
+    return { outside: String(a), terms: [numberTerm, letterTerm] };
   }
 
   function mount(el, opts) {
@@ -75,8 +100,9 @@
       nextBtn.hidden = true;
       $(".ds-expr").innerHTML =
         `<span class="ds-chip">${ital(q.outside)}</span><span class="ds-paren">(</span>` +
-        q.terms.map((t, i) => (t.sign ? `<span>${t.sign === "-" ? "−" : t.sign}</span>` : "") +
-          `<span class="ds-term" data-i="${i}">${ital(t.show)}</span>`).join("") +
+        q.terms.map((t, i) => t.sign === "-"
+          ? `<span class="ds-term neg" data-i="${i}">−${ital(t.show)}</span>`
+          : (t.sign ? `<span>${t.sign}</span>` : "") + `<span class="ds-term" data-i="${i}">${ital(t.show)}</span>`).join("") +
         `<span class="ds-paren">)</span>`;
       $(".ds-answer").innerHTML = "= " + q.terms.map((t, i) =>
         (i ? ` ${t.sign === "-" ? "−" : "+"} ` : "") + `<span class="ds-slot" data-i="${i}">?</span>`).join("");
@@ -100,7 +126,8 @@
       el.querySelectorAll(".ds-term").forEach(t => t.classList.toggle("active", +t.dataset.i === i));
       drawArcs();
       const t = q.terms[i];
-      $(".ds-q").innerHTML = `What is <span class="m">${ital(q.outside)} × ${ital(t.show)}</span>?`;
+      const shown = t.sign === "-" ? `(−${ital(t.show)})` : ital(t.show);
+      $(".ds-q").innerHTML = `What is <span class="m">${ital(q.outside)} × ${shown}</span>?`;
       $(".ds-choices").innerHTML = "";
       shuffle(t.choices).forEach(c => {
         const b = document.createElement("button");
@@ -127,7 +154,7 @@
         const signed = (t, i, key) => (i ? ` ${t.sign === "-" ? "−" : "+"} ` : "") + String(t[key]).replace(/^-/, "");
         const whole = `${q.outside}(${q.terms.map((t, i) => signed(t, i, "show")).join("")}) = ` +
           q.terms.map((t, i) => signed(t, i, "product")).join("");
-        say(`🎉 <span class="m">${ital(whole)}</span><br>The ${ital(q.outside)} reached <strong>every</strong> term. Press <strong>Next one</strong>.`, "good");
+        say(`🎉 <span class="m">${ital(whole)}</span><br>The ${ital(q.outside)} reached <strong>every</strong> term${q.terms.some(t => t.sign === "-") ? ", and the minus stayed with its term" : ""}. Press <strong>Next one</strong>.`, "good");
         if (round >= rounds) {
           if (window.Celebrate) Celebrate.burst();
           say(`🏆 All ${rounds} done${window.Lesson ? ", " + Lesson.name : ""}${firstTry === rounds ? ", with no slips. Amazing!" : "!"} You've got the idea: the outside number multiplies everything inside. On to the next game 👇`, "good");
@@ -178,5 +205,5 @@
     newRound();
   }
 
-  window.Distribute = { mount, single };
+  window.Distribute = { mount, single, minus };
 })();

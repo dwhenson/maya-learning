@@ -27,19 +27,20 @@ Step cards with a sticky emoji "journey" bar: 🎬 watch (short video) → 🧱 
 - `whimsy.js`: auto springy hover "boops", sparkles on good feedback / right answers, spring-in cards, `[data-sparkles]` twinkles. Respects reduced motion
 - `sounds.js`: `Sound.play(name)` (pick, drop, tap, correct, wrong, fanfare), Web Audio synth, mute toggle, remembered per browser. Include before lesson.js
 - `drag.js`: `Drag.attach(el, {targets, onDrop, onTap})`. Pointer events, so mouse and touch both work, and tap works as a fallback
-- `tiles.js`: `TileBuilder.mount(el, {a, b, letter, onDone})`. Algebra tiles: build a row, drag copies, count
-- `distribute.js`: `Distribute.mount(el, {rounds, generate})`; `Distribute.single(a,b,L)`. Drag the multiplier onto each term with rainbow arrows; terms support `sign` for negatives later
+- `tiles.js`: `TileBuilder.mount(el, {a, b, letter, sign, onDone})`. Algebra tiles: build a row, drag copies, count. `sign: -1` adds red −1 tiles (tray offers +1 and −1, so picking the sign is part of the task)
+- `distribute.js`: `Distribute.mount(el, {rounds, generate})`; `Distribute.single(a,b,L)` for a(x + b), `Distribute.minus(a,b,L,numberFirst)` for a(x − b) / a(b − x). A `sign: "-"` term is drawn with its minus inside the term box ("the minus sticks to its term")
 - `sort.js`: `Sort.mount(el, {bins, cards})`. Drag cards into bins
-- `area-model.js`: `AreaModel.render(el, {outer, parts, reveal, showTotal})`
+- `area-model.js`: `AreaModel.render(el, {outer, parts, reveal, showTotal})`. A part with `take: true` is a striped piece cut out of the previous one (a(x − b))
+- `hops.js`: `Hops.mount(el, {times, step, onDone})`. Frog hops on a number line to show 4 × (−3) = −12
 - `expr.js`: reads typed answers like "3x + 12" (single letter terms only for now; extend for x², negatives already work)
-- `practice.js`: `Practice.mount(el, {goal, generate})`; generator gives prompt, answer, optional diagnose/explain
+- `practice.js`: `Practice.mount(el, {goal, generate})`; generator gives prompt, answer (shown exactly as written, so write it in the question's order), optional diagnose/explain
 - `quiz.js`: `.quiz[data-answer][data-why]` multiple choice
 - Maya opens lessons by double-clicking `Open Lessons.command` (local no-cache server on :8765 → index.html, so lesson updates show without a hard refresh). That way YouTube plays inside the page; from file:// videos open in a new tab instead.
 - To test in the preview pane, run `python3 -m http.server 8765 --bind 127.0.0.1` from the shell (the preview launcher can't read ~/Documents), then use real `left_click_drag` to test drags.
 
 ## Planned sequence (adjust to evidence)
 1. ✅ Brackets are rectangles: a(x + b), positives only
-2. Minus inside: 4(x − 3). Area model with a "take away" piece
+2. ✅ Minus inside: 4(x − 3). Frog hops for 4 × (−3), red −1 tiles, take-away area piece. Practice is 60% a(x − b), 15% a(b − x), 25% Lesson 1 type
 3. Negative outside: −2(x + 5), −2(x − 5). Sign rules for multiplying
 4. Expand and simplify: 3(x + 2) + 2(x − 1), and subtracting a bracket
 5. Letter outside: x(x + 3), 2y(y − 4)

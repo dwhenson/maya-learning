@@ -82,7 +82,7 @@
   }
 
   // A soft tap for ordinary buttons. Ones whose result has its own sound are skipped.
-  const QUIET = ".quiz button, .ds-choices button, .tb-check, .practice-form button, .sound-toggle, .video";
+  const QUIET = ".quiz button, .ds-choices button, .hp-hop, .hp-choices button, .tb-check, .practice-form button, .sound-toggle, .video";
   document.addEventListener("pointerdown", e => {
     const el = e.target.closest && e.target.closest("button, summary");
     if (el && !el.matches(QUIET) && !el.disabled) play("tap");

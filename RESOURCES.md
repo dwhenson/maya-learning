@@ -27,6 +27,8 @@
   National Centre for Excellence in the Teaching of Mathematics. Tiles model, matches our tile builder. Use for: lessons 1–3.
 - [YouTube: Corbettmaths, "Expanding Brackets"](https://www.youtube.com/watch?v=ZJA1qz4XovY) · 3 min
   Single brackets, moving on to negatives. Use for: lessons 1–3.
+- [YouTube: Corbettmaths, "Multiplying Negatives"](https://www.youtube.com/watch?v=IX4fnfbbqkk) · 3½ min
+  Refresher on positive × negative. Use for: lesson 2 (4 × −3) and lesson 3 (sign rules).
 - [YouTube: Corbettmaths, "Expanding Two Brackets"](https://www.youtube.com/watch?v=434T2SsiTrU)
   Use for: double brackets later.
 - [BBC Bitesize KS3: Multiplying brackets](https://www.bbc.co.uk/bitesize/articles/zbkyb82)

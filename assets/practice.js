@@ -70,13 +70,13 @@
         fb.className = "feedback good";
         const untidy = parsed._terms > Object.values(target).filter(v => v).length;
         fb.innerHTML = untidy
-          ? `Correct! Tidy it up as <span class="m">${Expr.html(Expr.show(target))}</span> by collecting the numbers.`
-          : `${window.Lesson ? Lesson.praise() : "Correct!"} <span class="m">${Expr.html(current.prompt)} = ${Expr.html(Expr.show(target))}</span>`;
+          ? `Correct! Tidy it up as <span class="m">${Expr.html(current.answer)}</span> by collecting the numbers.`
+          : `${window.Lesson ? Lesson.praise() : "Correct!"} <span class="m">${Expr.html(current.prompt)} = ${Expr.html(current.answer)}</span>`;
       } else {
         fb.className = "feedback bad";
         const hint = current.diagnose ? current.diagnose(parsed) : null;
         fb.innerHTML = (hint ? hint + "<br>" : "Not quite. ") +
-          `The answer is <span class="m">${Expr.html(Expr.show(target))}</span>.`;
+          `The answer is <span class="m">${Expr.html(current.answer)}</span>.`;
         if (current.explain) current.explain(explain);
       }
       progress();

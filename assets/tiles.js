@@ -1,7 +1,8 @@
 /*
  * TileBuilder: build a(x + b) out of algebra tiles by dragging.
  *
- *   TileBuilder.mount(el, { a: 3, b: 4, letter: "x", onDone() {} });
+ *   TileBuilder.mount(el, { a: 3, b: 4, letter: "x", sign: 1, onDone() {} });
+ *   sign: -1 builds a(x − b) with red −1 tiles (the tray then offers +1 and −1 tiles).
  *
  * Stage 1: drag x tiles and 1 tiles into row 1 to make (x + b).   (tap a tile in the row to remove it)
  * Stage 2: drag row 1 into the empty rows to make a copies.       (the "a lots of")
@@ -15,6 +16,7 @@
   .tile { display:inline-grid; place-items:center; height:var(--u, 36px); border-radius:9px; border:2px solid; font:800 1.1rem var(--serif); color:var(--ink); flex:none; }
   .tile.tx { width:calc(var(--u, 36px) * 2.55); background:var(--part-a); border-color:var(--part-a-edge); font-style:italic; }
   .tile.t1 { width:var(--u, 36px); background:var(--part-b); border-color:var(--part-b-edge); }
+  .tile.tn { width:var(--u, 36px); background:var(--bad-soft); border-color:var(--bad); color:var(--bad); font-size:.95rem; }
   .tb-tray .tile { box-shadow:0 3px 0 rgba(0,0,0,.12); }
   .tb-board { display:flex; gap:.6rem; margin-top:1rem; }
   .tb-side { flex:none; width:2.6rem; display:grid; place-items:center; border-right:3px solid var(--accent); border-radius:0 0 0 0;
@@ -56,17 +58,21 @@
     }
     let a = opts.a || 3, b = opts.b || 4;
     const L = opts.letter || "x";
+    const neg = opts.sign === -1, sg = neg ? "−" : "+", unit = neg ? "n" : "1";
+    const CLS = { x: "tx", 1: "t1", n: "tn" }, TXT = { x: L, 1: "1", n: "−1" };
+    const tileHTML = (kind, extra = "") => `<span class="tile ${CLS[kind]}"${extra}>${TXT[kind]}</span>`;
     let row, filled, stage, finished = false;
 
     function start() {
       row = []; filled = 1; stage = 1;
       el.classList.add("tb");
       el.innerHTML = `
-        <p class="display" style="margin:.2rem 0 .6rem">Build <span class="m">${a}(${ital(L)} + ${b})</span></p>
+        <p class="display" style="margin:.2rem 0 .6rem">Build <span class="m">${a}(${ital(L)} ${sg} ${b})</span></p>
         <p class="tb-instr"></p>
         <div class="tb-tray">
           <div class="tile tx" data-kind="x">${L}</div>
           <div class="tile t1" data-kind="1">1</div>
+          ${neg ? '<div class="tile tn" data-kind="n">−1</div>' : ""}
           <span class="meta">👈 drag these into row 1 (or tap them)</span>
         </div>
         <div class="tb-board">
@@ -80,7 +86,7 @@
         </div>
         <div class="tb-count" hidden>
           <label>How many <span class="tile tx" style="width:56px;height:28px">${L}</span> tiles? <input class="answer small" inputmode="numeric"></label>
-          <label>How many <span class="tile t1" style="width:28px;height:28px">1</span> tiles? <input class="answer small" inputmode="numeric"></label>
+          <label>How many ${tileHTML(unit, ' style="width:28px;height:28px"')} tiles? <input class="answer small" inputmode="numeric"></label>
           <button class="tb-check">Check</button>
         </div>
         <div class="feedback" aria-live="polite"></div>
@@ -88,7 +94,7 @@
           <button class="ghost tb-reset">↺ Start again</button>
           <button class="ghost tb-new">🎲 New numbers</button>
         </div>`;
-      say(`<strong>Step 1:</strong> make what's inside the bracket, <span class="m">${ital(L)} + ${b}</span>, in row 1. Drag tiles from the box above (or tap them). Tap a tile in the row to take it out.`);
+      say(`<strong>Step 1:</strong> make what's inside the bracket, <span class="m">${ital(L)} ${sg} ${b}</span>, in row 1. Drag tiles from the box above (or tap them). Tap a tile in the row to take it out.`);
       const rows = () => [...el.querySelectorAll(".tb-row")];
       const firstSlot = () => rows()[0].querySelector(".tb-slot");
 
@@ -108,12 +114,11 @@
       el.querySelector(".tb-check").onclick = check;
       el.querySelectorAll(".tb-count input").forEach(i => i.addEventListener("keydown", e => { if (e.key === "Enter") check(); }));
 
-      function tileHTML(kind) { return `<span class="tile ${kind === "x" ? "tx" : "t1"}">${kind === "x" ? L : 1}</span>`; }
-
       function drawRow1() {
-        row.sort((p, q) => (p === "x" ? 0 : 1) - (q === "x" ? 0 : 1));
+        const ORD = { x: 0, 1: 1, n: 2 };
+        row.sort((p, q) => ORD[p] - ORD[q]);
         const slot = firstSlot();
-        slot.innerHTML = row.length ? row.map(tileHTML).join("") : '<span class="hint">drop tiles here</span>';
+        slot.innerHTML = row.length ? row.map(k => tileHTML(k)).join("") : '<span class="hint">drop tiles here</span>';
         slot.querySelectorAll(".tile").forEach((t, i) => {
           t.title = "Tap to remove";
           t.onclick = () => { if (stage === 1) { row.splice(i, 1); drawRow1(); check1(); } };
@@ -122,16 +127,20 @@
       function add(kind) {
         if (row.length >= 10) return;
         row.push(kind); drawRow1();
-        const last = [...firstSlot().querySelectorAll(".tile")].filter(t => t.classList.contains(kind === "x" ? "tx" : "t1")).pop();
+        const last = [...firstSlot().querySelectorAll(".tile")].filter(t => t.classList.contains(CLS[kind])).pop();
         if (last) last.classList.add("pop-in");
         check1();
       }
       function check1() {
-        const nx = row.filter(k => k === "x").length, n1 = row.length - nx;
-        const parts = [nx ? (nx === 1 ? L : nx + L) : "", n1 ? String(n1) : ""].filter(Boolean).join(" + ") || "nothing yet";
+        const nx = row.filter(k => k === "x").length, n1 = row.filter(k => k === "1").length, nn = row.filter(k => k === "n").length;
+        const want = neg ? nn : n1, other = neg ? n1 : nn;
+        let parts = [nx ? (nx === 1 ? L : nx + L) : "", n1 ? String(n1) : ""].filter(Boolean).join(" + ");
+        if (nn) parts = parts ? `${parts} − ${nn}` : `−${nn}`;
+        parts = parts || "nothing yet";
         if (nx > 1) return say(`Row 1 is <span class="m">${ital(parts)}</span>. The bracket only has <strong>one</strong> <i>${L}</i>. Tap a tile to remove it.`, "bad");
-        if (n1 > b) return say(`Row 1 is <span class="m">${ital(parts)}</span>. That's too many 1s. You need ${b}. Tap one to remove it.`, "bad");
-        if (nx === 1 && n1 === b) return toStage2();
+        if (neg && other) return say(`Row 1 has a yellow <strong>+1</strong> tile, but the bracket says <span class="m">− ${b}</span>. Use the red <strong>−1</strong> tiles. Tap the +1 to take it out.`, "bad");
+        if (want > b) return say(`Row 1 is <span class="m">${ital(parts)}</span>. That's too many ${neg ? "−1" : "1"} tiles. You need ${b}. Tap one to remove it.`, "bad");
+        if (nx === 1 && want === b && !other) return toStage2();
         say(`Row 1 so far: <span class="m">${ital(parts)}</span>. Keep going!`);
       }
 
@@ -140,7 +149,7 @@
         el.querySelector(".tb-tray").hidden = true;
         el.querySelector(".tb-side").hidden = false;
         rows().forEach((r, i) => { if (i) r.hidden = false; });
-        say(`✅ That's one lot of <span class="m">(${ital(L)} + ${b})</span>.<br>The <strong>${a}</strong> outside the bracket means <strong>${a} lots</strong>. <strong>Step 2:</strong> drag row 1 (grab the pink ✋ button) into each empty row below 👇`, "good");
+        say(`✅ That's one lot of <span class="m">(${ital(L)} ${sg} ${b})</span>.<br>The <strong>${a}</strong> outside the bracket means <strong>${a} lots</strong>. <strong>Step 2:</strong> drag row 1 (grab the pink ✋ button) into each empty row below 👇`, "good");
         el.querySelector(".tb-instr").innerHTML = "";
         const handle = document.createElement("span");
         handle.className = "tb-handle"; handle.innerHTML = '✋<span class="word"> drag me</span>';
@@ -154,7 +163,7 @@
       }
       function fill(target) {
         target.classList.remove("empty");
-        target.querySelector(".tb-slot").innerHTML = row.map(tileHTML).join("");
+        target.querySelector(".tb-slot").innerHTML = row.map(k => tileHTML(k)).join("");
         target.classList.add("pop-in");
         filled++;
         if (filled < a) { say(`${filled} lots so far. ${a - filled} to go!`, "good"); return; }
@@ -173,9 +182,10 @@
       const nx = parseInt(ix.value, 10), n1 = parseInt(i1.value, 10);
       if (isNaN(nx) || isNaN(n1)) return say("Type a number in both boxes.", "bad");
       if (nx !== a) return say(`Count the <i>${L}</i> tiles again: there's one in each row, and there are ${a} rows.`, "bad");
-      if (n1 !== a * b) return say(`Count the 1 tiles again: ${b} in each row, ${a} rows. That's ${a} × ${b}.`, "bad");
-      say(`🎉 <strong>${window.Lesson ? Lesson.praise() : "Yes!"}</strong> ${a} lots of <span class="m">(${ital(L)} + ${b})</span> is <span class="m">${a}${ital(L)}</span> and <span class="m">${a * b}</span>.
-           <span class="display" style="display:block;margin:.4rem 0 0"><span class="m">${a}(${ital(L)} + ${b}) = ${a}${ital(L)} + ${a * b}</span></span>
+      if (n1 !== a * b) return say(`Count the ${neg ? "red −1" : "1"} tiles again: ${b} in each row, ${a} rows. That's ${a} × ${b}.`, "bad");
+      const ones = neg ? `${a * b} red tiles, each worth −1. That's <span class="m">−${a * b}</span>, so the minus stays!` : `<span class="m">${a * b}</span>.`;
+      say(`🎉 <strong>${window.Lesson ? Lesson.praise() : "Yes!"}</strong> ${a} lots of <span class="m">(${ital(L)} ${sg} ${b})</span> is <span class="m">${a}${ital(L)}</span> and ${ones}
+           <span class="display" style="display:block;margin:.4rem 0 0"><span class="m">${a}(${ital(L)} ${sg} ${b}) = ${a}${ital(L)} ${sg} ${a * b}</span></span>
            Press 🎲 <strong>New numbers</strong> to build another, or scroll down to the next game 👇`, "good");
       if (window.Celebrate) Celebrate.burst();
       if (!finished && opts.onDone) opts.onDone();

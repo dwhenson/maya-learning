@@ -9,6 +9,10 @@
  *     showTotal: true   // writes "area = 3x + 12" underneath once all pieces are shown
  *   });
  *
+ * Minus inside, e.g. 4(x − 3): give the piece { label: "3", size: 3, product: "-12", take: true }.
+ * It is cut out of the right-hand end of the piece before it (striped, "take away"),
+ * with its width labelled underneath. The total then reads "area = 4x − 12".
+ *
  * Letters in labels are set in italic automatically. Colours come from course.css.
  */
 (function () {
@@ -41,8 +45,9 @@
     el.innerHTML = "";
     el.classList.add("area-model");
     const maxW = opts.maxWidth || 440;
-    const padL = 44, padT = 36, padB = opts.showTotal ? 44 : 10, padR = 6;
-    const totalSize = opts.parts.reduce((s, p) => s + p.size, 0);
+    const hasTake = opts.parts.some(p => p.take);
+    const padL = 44, padT = 36, padB = (opts.showTotal ? 44 : 10) + (hasTake ? 28 : 0), padR = 6;
+    const totalSize = opts.parts.reduce((s, p) => s + (p.take ? 0 : p.size), 0);
     const unit = Math.min(opts.unit || 30, maxW / totalSize);
     const h = Math.max(56, Math.min(170, opts.outer.size * unit));
     const w = totalSize * unit;
@@ -61,10 +66,40 @@
     svg.appendChild(line);
     mathText(svg, opts.outer.label, { x: padL - 18, y: padT + h / 2 + 7, "text-anchor": "end", "font-size": 22 });
 
+    // Stripes for take-away pieces.
+    if (hasTake) {
+      const defs = document.createElementNS(NS, "defs");
+      defs.innerHTML = `<pattern id="am-stripes" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect width="8" height="8" style="fill:var(--bad-soft)"></rect><line x1="0" y1="0" x2="0" y2="8" style="stroke:var(--bad);stroke-width:3"></line></pattern>`;
+      svg.appendChild(defs);
+    }
     const revealed = [];
     let x = padL;
     opts.parts.forEach((p, i) => {
       const pw = p.size * unit;
+      if (p.take) {
+        // Cut out of the right end of the piece before it.
+        const tx = x - pw;
+        const g = document.createElementNS(NS, "g");
+        const r = document.createElementNS(NS, "rect");
+        r.setAttribute("x", tx); r.setAttribute("y", padT); r.setAttribute("width", pw); r.setAttribute("height", h);
+        r.style.fill = "url(#am-stripes)"; r.style.stroke = "var(--bad)"; r.style.strokeWidth = 2; r.setAttribute("stroke-dasharray", "6 4");
+        g.appendChild(r);
+        const tag = mathText(g, p.product, { x: tx + pw / 2, y: padT + h / 2 + 9, "text-anchor": "middle", "font-size": 24, "font-weight": 800 });
+        tag.style.fill = "var(--bad)"; tag.style.stroke = "var(--surface)"; tag.style.strokeWidth = 5; tag.style.paintOrder = "stroke";
+        tag.setAttribute("stroke-linejoin", "round");
+        svg.appendChild(g);
+        const tick = document.createElementNS(NS, "path");
+        tick.setAttribute("d", `M ${tx + 3} ${padT + h + 10} h ${pw - 6}`);
+        tick.style.stroke = "var(--bad)"; tick.style.strokeWidth = 1.5;
+        svg.appendChild(tick);
+        const wl = mathText(svg, p.label, { x: tx + pw / 2, y: padT + h + 28, "text-anchor": "middle", "font-size": 18 }, "take ");
+        wl.style.fill = "var(--bad)";
+        revealed[i] = true;
+        return;
+      }
+      const next = opts.parts[i + 1];
+      const cut = next && next.take ? next.size * unit : 0;   // room taken by a cut-out piece
       const x0 = x; // freeze this piece's left edge for the click handler
       // width label
       const tick = document.createElementNS(NS, "path");
@@ -81,7 +116,7 @@
       r.style.stroke = "var(--ink)"; r.style.strokeWidth = 1.5;
       g.appendChild(r);
       const label = mathText(g, opts.reveal ? "?" : p.product,
-        { x: x + pw / 2, y: padT + h / 2 + 9, "text-anchor": "middle", "font-size": 26 });
+        { x: x + (pw - cut) / 2, y: padT + h / 2 + 9, "text-anchor": "middle", "font-size": 26 });
       revealed[i] = !opts.reveal;
       if (opts.reveal) {
         g.style.cursor = "pointer";
@@ -92,7 +127,7 @@
           if (revealed[i]) return;
           revealed[i] = true;
           label.remove();
-          mathText(g, p.product, { x: x0 + pw / 2, y: padT + h / 2 + 9, "text-anchor": "middle", "font-size": 26 });
+          mathText(g, p.product, { x: x0 + (pw - cut) / 2, y: padT + h / 2 + 9, "text-anchor": "middle", "font-size": 26 });
           maybeTotal();
         };
         g.addEventListener("click", show);
@@ -105,7 +140,7 @@
     function maybeTotal() {
       if (!opts.showTotal || revealed.some(r => !r)) return;
       const total = opts.parts.map(p => p.product).join(" + ").replace(/\+ -/g, "− ");
-      mathText(svg, total, { x: padL + w / 2, y: padT + h + 34, "text-anchor": "middle", "font-size": 22 }, "area = ");
+      mathText(svg, total, { x: padL + w / 2, y: padT + h + 34 + (hasTake ? 28 : 0), "text-anchor": "middle", "font-size": 22 }, "area = ");
     }
     maybeTotal();
     el.appendChild(svg);
