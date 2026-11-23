@@ -16,6 +16,7 @@
 <script src="../assets/sort.js"></script>
 <script src="../assets/practice.js"></script>
 <script src="../assets/quiz.js"></script>
+<script src="../assets/feedback.js"></script>
 </head>
 <body>
 <main>
@@ -138,10 +139,22 @@
   <p class="quiz-score" style="text-align:center;font-weight:700" aria-live="polite"></p>
 </section>
 
-<div class="ask">
-  <span class="icon">💬</span>
-  <div><strong>Got a question, Maya?</strong> Ask Claude. That's what it's here for! Try "why is it called expanding?", "give me 5 harder ones" or "I keep getting this wrong, why?". No question is too small.</div>
-</div>
+<form class="card fb-form" name="feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+  <div class="card-head"><span class="bubble">💬</span><h2>How did it go, Maya?</h2></div>
+  <input type="hidden" name="form-name" value="feedback">
+  <input type="hidden" name="page" value="Lesson 1: Brackets are rectangles">
+  <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
+  <fieldset class="fb-moods">
+    <legend>This lesson felt…</legend>
+    <label><input type="radio" name="feeling" value="Easy"><span>😎 Easy</span></label>
+    <label><input type="radio" name="feeling" value="OK"><span>🙂 OK</span></label>
+    <label><input type="radio" name="feeling" value="Tricky"><span>😕 Tricky</span></label>
+    <label><input type="radio" name="feeling" value="Lost"><span>😵‍💫 Lost</span></label>
+  </fieldset>
+  <label for="fb-message"><strong>Anything to say or ask?</strong> <span class="meta">What was confusing? What did you like? What should be next?</span></label>
+  <textarea id="fb-message" name="message" maxlength="2000" placeholder="e.g. I don't get why minus times minus is plus…"></textarea>
+  <div class="fb-row"><button type="submit">Send 💌</button><p class="fb-status meta" aria-live="polite">It'll be read before your next lesson is made.</p></div>
+</form>
 
 <p class="meta" style="text-align:center;margin-top:1.5rem">📄 <a href="../reference/expanding-brackets.html">Cheat sheet</a> to print for your maths book</p>
 

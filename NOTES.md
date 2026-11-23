@@ -35,8 +35,13 @@ Step cards with a sticky emoji "journey" bar: 🎬 watch (short video) → 🧱 
 - `expr.js`: reads typed answers like "3x + 12" (single letter terms only for now; extend for x², negatives already work)
 - `practice.js`: `Practice.mount(el, {goal, generate})`; generator gives prompt, answer (shown exactly as written, so write it in the question's order), optional diagnose/explain
 - `quiz.js`: `.quiz[data-answer][data-why]` multiple choice
+- `numberline.js`: `NumberLine.render(el, {from, to, label})`. A hop on a number line (used in practice explains for directed numbers)
+- `feedback.js`: Netlify Forms "How did it go, Maya?" form (mood + message, no name/email). The form markup must be written in each page's HTML (Netlify only detects static forms); copy it from a lesson and change the hidden `page` value. It replaced the old "Ask Claude" box, because Maya uses the lessons in a browser without Claude. Only works on the live site, not the local server.
 - Maya opens lessons by double-clicking `Open Lessons.command` (local no-cache server on :8765 → index.html, so lesson updates show without a hard refresh). That way YouTube plays inside the page; from file:// videos open in a new tab instead.
 - To test in the preview pane, run `python3 -m http.server 8765 --bind 127.0.0.1` from the shell (the preview launcher can't read ~/Documents), then use real `left_click_drag` to test drags.
+
+## Extras
+- `lessons/extra-negative-numbers.html`: a short negative numbers warm-up (which way, add/subtract, sign rule, times/divide). Linked from Lesson 2 and the home page. Point Maya here whenever directed numbers trip her up.
 
 ## Planned sequence (adjust to evidence)
 1. ✅ Brackets are rectangles: a(x + b), positives only
@@ -55,3 +60,4 @@ Interleave earlier types into each new practice set (spacing).
 - Repo: https://github.com/dwhenson/maya-learning (public, by the parent's choice)
 - `netlify.toml` copies only `index.html`, `lessons/`, `assets/`, `reference/` into `dist/`, so NOTES, MISSION, RESOURCES and learning records are in the repo but NOT on the website. Add any new public folder to that copy command.
 - After a new lesson: add it to `index.html`, commit, `git push`. Live in about a minute.
+- **Maya's feedback:** Netlify dashboard → site maya-learning → Forms → `feedback`. Read these before planning each new lesson, and record anything useful in a learning record.

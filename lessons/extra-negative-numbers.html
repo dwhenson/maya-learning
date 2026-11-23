@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en-GB" data-learner="Maya">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Negative Numbers Warm-up</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/expr.js"></script>
+<script src="../assets/drag.js"></script>
+<script src="../assets/sounds.js"></script>
+<script src="../assets/lesson.js"></script>
+<script src="../assets/whimsy.js"></script>
+<script src="../assets/numberline.js"></script>
+<script src="../assets/sort.js"></script>
+<script src="../assets/practice.js"></script>
+<script src="../assets/feedback.js"></script>
+<style>
+  .rules { display:grid; gap:.6rem; grid-template-columns:repeat(auto-fit, minmax(13rem, 1fr)); margin:.8rem 0; }
+  .rules .box { margin:0; }
+  .rules .m { font-size:1.15rem; }
+</style>
+</head>
+<body>
+<main>
+
+<header class="hero">
+  <p class="kicker">Maya's maths · Extra practice</p>
+  <h1>Negative numbers <span data-sparkles>warm-up</span> <span class="wiggle">🌡️</span></h1>
+  <p class="lede">Hi Maya! 👋 A quick top-up on minus numbers, for whenever they feel wobbly. Do one part or both. About 10 minutes.</p>
+</header>
+
+<nav class="journey" aria-label="Warm-up steps">
+  <a href="#which-way" data-step="dir" title="Which way?">➡️</a>
+  <a href="#add-sub" data-step="addsub" title="Adding and taking away">➕</a>
+  <a href="#signs" data-step="signs" title="Positive or negative?">🔮</a>
+  <a href="#mul-div" data-step="muldiv" title="Times and divide">✖️</a>
+</nav>
+
+<!-- PART 1: ADDING AND TAKING AWAY -->
+<section class="card" id="which-way">
+  <div class="card-head"><span class="bubble">➡️</span><h2>Part 1: Which way?</h2><span class="chip">2 min</span></div>
+  <p>Think of a number line. Adding moves you <strong>right ➡️</strong>, taking away moves you <strong>left ⬅️</strong>. A negative number flips the direction:</p>
+  <div class="rules">
+    <div class="box key"><span class="m">5 + (−3)</span> is the same as <span class="m">5 − 3</span><br><span class="meta">Adding a negative ⬅️ moves left</span></div>
+    <div class="box key"><span class="m">5 − (−3)</span> is the same as <span class="m">5 + 3</span><br><span class="meta">Taking away a negative ➡️ moves right</span></div>
+  </div>
+  <div id="nl-demo"></div>
+  <p><strong>How to play:</strong> drag each card into the way it moves (or tap a card, then tap a box).</p>
+  <div id="sort-dir"></div>
+</section>
+
+<section class="card" id="add-sub">
+  <div class="card-head"><span class="bubble">➕</span><h2>Adding and taking away</h2><span class="chip">4 min</span></div>
+  <p>Work each one out and type the answer. Use the <strong>-</strong> key for minus, like <span class="m">−7</span>. Get 6 right. If you slip, you'll see it on a number line.</p>
+  <div id="practice-addsub"></div>
+</section>
+
+<!-- PART 2: TIMES AND DIVIDE -->
+<section class="card" id="signs">
+  <div class="card-head"><span class="bubble">🔮</span><h2>Part 2: Positive or negative?</h2><span class="chip">2 min</span></div>
+  <p>For <strong>times ×</strong> and <strong>divide ÷</strong> there's one rule. Look at the two signs:</p>
+  <div class="rules">
+    <div class="box key"><strong>Same signs → positive ➕</strong><br><span class="m">3 × 4 = 12</span><br><span class="m">−3 × (−4) = 12</span></div>
+    <div class="box warn"><strong>Different signs → negative ➖</strong><br><span class="m">−3 × 4 = −12</span><br><span class="m">12 ÷ (−3) = −4</span></div>
+  </div>
+  <p class="meta">Remember the frog: <span class="m">4 × (−3)</span> is 4 hops of −3, so it lands on −12.</p>
+  <p><strong>How to play:</strong> don't work out the answer yet! Just drag each card to say if its answer is positive or negative (or tap a card, then tap a box).</p>
+  <div id="sort-signs"></div>
+</section>
+
+<section class="card" id="mul-div">
+  <div class="card-head"><span class="bubble">✖️</span><h2>Times and divide</h2><span class="chip">4 min</span></div>
+  <p>Now the full answer. Do the numbers first, then use the sign rule. Get 6 right.</p>
+  <div id="practice-muldiv"></div>
+</section>
+
+<p class="meta" style="text-align:center;margin-top:1.5rem">Feeling better about minus numbers? 🎉 Head back to <a href="0002-minus-inside.html">Lesson 2: Minus signs inside</a>.</p>
+
+<form class="card fb-form" name="feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+  <div class="card-head"><span class="bubble">💬</span><h2>How did it go, Maya?</h2></div>
+  <input type="hidden" name="form-name" value="feedback">
+  <input type="hidden" name="page" value="Extra: Negative numbers warm-up">
+  <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
+  <fieldset class="fb-moods">
+    <legend>This lesson felt…</legend>
+    <label><input type="radio" name="feeling" value="Easy"><span>😎 Easy</span></label>
+    <label><input type="radio" name="feeling" value="OK"><span>🙂 OK</span></label>
+    <label><input type="radio" name="feeling" value="Tricky"><span>😕 Tricky</span></label>
+    <label><input type="radio" name="feeling" value="Lost"><span>😵‍💫 Lost</span></label>
+  </fieldset>
+  <label for="fb-message"><strong>Anything to say or ask?</strong> <span class="meta">What was confusing? What did you like? What should be next?</span></label>
+  <textarea id="fb-message" name="message" maxlength="2000" placeholder="e.g. I don't get why minus times minus is plus…"></textarea>
+  <div class="fb-row"><button type="submit">Send 💌</button><p class="fb-status meta" aria-live="polite">It'll be read before your next lesson is made.</p></div>
+</form>
+
+<nav class="lessons">
+  <a href="0002-minus-inside.html">← Lesson 2</a>
+  <a href="../index.html">🏠 All lessons</a>
+</nav>
+
+</main>
+<script>
+  const rnd = (lo, hi) => lo + Math.floor(Math.random() * (hi - lo + 1));
+  const n = v => (v < 0 ? "-" + Math.abs(v) : String(v));                 // plain text, Expr.html makes the minus pretty
+  const b = v => (v < 0 ? `(-${Math.abs(v)})` : String(v));               // brackets round a negative second number
+  const pretty = s => Expr.html(s);
+  const EXAMPLE = '<span class="m">−7</span>';
+
+  NumberLine.render(document.getElementById("nl-demo"), { from: 5, to: 8, label: "5 − (−3) = 8" });
+
+  Sort.mount(document.getElementById("sort-dir"), {
+    bins: [ { id: "left", label: "⬅️ Moves left" }, { id: "right", label: "➡️ Moves right" } ],
+    cards: [
+      { html: "4 + 2", bin: "right", why: "Adding a positive moves right.", hint: "Plus a normal number: which way is that?" },
+      { html: "4 − 2", bin: "left", why: "Taking away moves left.", hint: "Taking away: which way is that?" },
+      { html: "4 + (−2)", bin: "left", why: "Adding a negative is the same as taking away, so left.", hint: "Adding a <em>negative</em> flips the direction." },
+      { html: "4 − (−2)", bin: "right", why: "Taking away a negative is the same as adding, so right! 4 − (−2) = 6.", hint: "Taking away a <em>negative</em> flips the direction." },
+      { html: "−3 + 5", bin: "right", why: "Start at −3 and add 5: move right to 2.", hint: "Ignore where you start. Look at the move: + 5." },
+      { html: "−3 − (−1)", bin: "right", why: "Taking away a negative moves right: −3 − (−1) = −2.", hint: "Two minus signs next to each other… what does that become?" }
+    ],
+    onDone: () => Lesson.done("dir")
+  });
+
+  Practice.mount(document.getElementById("practice-addsub"), {
+    goal: 6, example: EXAMPLE,
+    onFinish: () => { Lesson.done("addsub"); Celebrate.burst(); },
+    generate() {
+      let a, k, form, ans;
+      do {
+        a = rnd(-9, 9); k = rnd(1, 9); form = rnd(0, 3);
+        ans = [a + k, a - k, a - k, a + k][form];
+      } while (a === 0 || ans === 0);
+      const prompt = [`${n(a)} + ${k}`, `${n(a)} - ${k}`, `${n(a)} + (-${k})`, `${n(a)} - (-${k})`][form];
+      const rewrite = [null, null, `${n(a)} - ${k}`, `${n(a)} + ${k}`][form];
+      const moveLabel = (ans > a ? "+" : "−") + Math.abs(ans - a) + (ans > a ? " ➡️" : " ⬅️");
+      return {
+        prompt, answer: String(ans),
+        diagnose(p) {
+          const got = p["1"] || 0;
+          if (form === 3 && got === a - k) return `Careful: taking away a negative flips it. <span class="m">${pretty(prompt)}</span> is the same as <span class="m">${pretty(rewrite)}</span>.`;
+          if (form === 2 && got === a + k) return `Careful: adding a negative moves left. <span class="m">${pretty(prompt)}</span> is the same as <span class="m">${pretty(rewrite)}</span>.`;
+          if (got === -ans) return "Right number, wrong sign! Check which side of 0 you land on.";
+          return null;
+        },
+        explain(box) {
+          const pic = document.createElement("div");
+          NumberLine.render(pic, { from: a, to: ans, label: moveLabel });
+          const note = document.createElement("p"); note.className = "meta"; note.style.textAlign = "center";
+          note.innerHTML = (rewrite ? `<span class="m">${pretty(prompt)}</span> is the same as <span class="m">${pretty(rewrite)}</span>. ` : "") +
+            `Start at <span class="m">${pretty(n(a))}</span>, move ${ans > a ? "right" : "left"} ${Math.abs(ans - a)}, land on <span class="m">${pretty(n(ans))}</span>.`;
+          box.append(pic, note);
+        }
+      };
+    }
+  });
+
+  Sort.mount(document.getElementById("sort-signs"), {
+    bins: [ { id: "right", label: "➕ Positive answer" }, { id: "wrong", label: "➖ Negative answer" } ],
+    cards: [
+      { html: "−3 × 4", bin: "wrong", why: "Different signs → negative. It's −12.", hint: "One minus, one plus. Same or different?" },
+      { html: "−2 × (−5)", bin: "right", why: "Same signs (both minus) → positive. It's 10.", hint: "Both numbers are negative. Same or different?" },
+      { html: "6 × (−2)", bin: "wrong", why: "Different signs → negative. It's −12.", hint: "One plus, one minus. Same or different?" },
+      { html: "12 ÷ (−3)", bin: "wrong", why: "Divide uses the same rule. Different signs → negative. It's −4.", hint: "Divide follows the same rule as times." },
+      { html: "−8 ÷ (−2)", bin: "right", why: "Same signs → positive. It's 4.", hint: "Both negative. Same or different?" },
+      { html: "5 × 7", bin: "right", why: "Same signs (both plus) → positive. It's 35.", hint: "No minus signs at all here!" }
+    ],
+    onDone: () => Lesson.done("signs")
+  });
+
+  Practice.mount(document.getElementById("practice-muldiv"), {
+    goal: 6, example: EXAMPLE,
+    onFinish: () => { Lesson.done("muldiv"); Celebrate.burst(); },
+    generate() {
+      let x = rnd(2, 9), y = rnd(2, 9);
+      do { x = x * (Math.random() < .5 ? -1 : 1); y = y * (Math.random() < .5 ? -1 : 1); } while (x > 0 && y > 0 && Math.random() < .7);
+      const divide = Math.random() < .45;
+      const prompt = divide ? `${n(x * y)} ÷ ${b(y)}` : `${n(x)} × ${b(y)}`;
+      const ans = divide ? x : x * y;
+      const p1 = divide ? x * y : x, p2 = y;
+      const same = (p1 < 0) === (p2 < 0);
+      const size = Math.abs(ans), raw = divide ? `${Math.abs(x * y)} ÷ ${Math.abs(y)}` : `${Math.abs(x)} × ${Math.abs(y)}`;
+      return {
+        prompt, answer: String(ans),
+        diagnose(p) {
+          const got = p["1"] || 0;
+          if (got === -ans) return `Right number, wrong sign! The signs are <strong>${same ? "the same" : "different"}</strong>, so the answer is <strong>${same ? "positive" : "negative"}</strong>.`;
+          return null;
+        },
+        explain(box) {
+          box.innerHTML = `<div class="box" style="margin-top:.8rem">
+            <strong>1. The numbers:</strong> <span class="m">${raw} = ${size}</span><br>
+            <strong>2. The signs:</strong> ${same ? "same → positive ➕" : "different → negative ➖"}<br>
+            <strong>So:</strong> <span class="m">${pretty(prompt)} = ${pretty(n(ans))}</span></div>`;
+        }
+      };
+    }
+  });
+</script>
+</body>
+</html>

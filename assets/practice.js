@@ -9,7 +9,8 @@
  *       diagnose(parsed) { return "html hint" | null },   // optional: spot a known mistake
  *       explain(box) { ... }         // optional: draw a worked explanation into box
  *     }),
- *     onFinish() {}
+ *     onFinish() {},
+ *     example: "<span class='m'>−7</span>"   // optional: how to type an answer, shown if it can't be read
  *   });
  *
  * Needs expr.js. Uses the .box / .feedback / input.answer styles in course.css.
@@ -59,7 +60,7 @@
       const parsed = Expr.parse(input.value);
       if (!parsed) {
         fb.className = "feedback bad";
-        fb.innerHTML = `I can't read that yet. Type it like <span class="m">3<i>x</i> + 12</span> (use - for minus).`;
+        fb.innerHTML = `I can't read that yet. Type it like ${opts.example || '<span class="m">3<i>x</i> + 12</span>'} (use - for minus).`;
         return;
       }
       attempts++;
