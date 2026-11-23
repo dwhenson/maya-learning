@@ -1,5 +1,7 @@
 # Maya's maths
 
+**Live:** https://maya-learning.netlify.app
+
 Interactive KS3 (Year 8) lessons on expanding brackets: short videos, drag-and-drop algebra tiles, puzzles and quizzes.
 
 - `index.html`: home page listing the lessons

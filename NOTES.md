@@ -48,3 +48,9 @@ Interleave earlier types into each new practice set (spacing).
 
 ## Glossary
 - No GLOSSARY.md yet. Add "expand" and "term" once Maya has used them correctly.
+
+## Publishing
+- Live site: https://maya-learning.netlify.app (Netlify, deploys automatically on every push to `main`)
+- Repo: https://github.com/dwhenson/maya-learning (public, by the parent's choice)
+- `netlify.toml` copies only `index.html`, `lessons/`, `assets/`, `reference/` into `dist/`, so NOTES, MISSION, RESOURCES and learning records are in the repo but NOT on the website. Add any new public folder to that copy command.
+- After a new lesson: add it to `index.html`, commit, `git push`. Live in about a minute.
