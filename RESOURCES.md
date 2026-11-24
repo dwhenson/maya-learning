@@ -34,6 +34,14 @@
 - [BBC Bitesize KS3: Multiplying brackets](https://www.bbc.co.uk/bitesize/articles/zbkyb82)
   KS3 article with video. BBC video can't be embedded, so link out. Use for: lessons 1–4. Also [Expanding double brackets](https://www.bbc.co.uk/bitesize/articles/z8vbf82) for later.
 
+## Videos for lessons 3–6 (Corbettmaths, checked 2026-11-24, all embeddable)
+- [Factorisation (Video 117)](https://corbettmaths.com/2013/02/06/factorisation/) · YouTube UrOJrsRv9iI · 5 min. Lesson 3
+- [Angles in a triangle (Video 37)](https://corbettmaths.com/2012/08/10/angles-in-a-triangle/) · QEsjIeSnEHU · 4½ min. Lesson 4
+- [Forming equations (Video 115)](https://corbettmaths.com/2013/04/20/forming-and-solving-equations/) · Lz3VkLrDmhE · 4½ min, and [Solving equations (Video 110)](https://corbettmaths.com/2012/08/24/solving-equations/) · 30S7WxKcPwg · 8½ min. Lesson 4 extras
+- [Increasing/decreasing by a percentage (Video 238)](https://corbettmaths.com/2012/08/21/increasing-or-decreasing-by-a-percentage/) · tUtgC7ZrsRc · 5 min, and [Multipliers (Video 239)](https://corbettmaths.com/2012/08/21/multipliers-for-increasing-and-decreasing-by-a-percentage/) · uHYywMkaZC8 · 8 min. Lesson 5
+- [Division: short division (Video 98)](https://corbettmaths.com/2013/12/28/division-video-98/) · q3Jk6W4oDgw · 4 min. Lesson 6
+- Each has a matching Corbettmaths practice sheet with answers on the same page, good for paper practice.
+
 ## Wisdom (Communities)
 
 - Maya's maths teacher at school

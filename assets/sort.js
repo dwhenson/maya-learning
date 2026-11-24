@@ -15,10 +15,11 @@
   .st-card { background:var(--surface); border:2px solid var(--rule); border-radius:14px; padding:.5rem .9rem;
     font:800 1.15rem var(--serif); box-shadow:0 3px 0 var(--rule); }
   .st-card.selected { border-color:var(--accent); box-shadow:0 0 0 4px var(--accent-soft); }
-  .st-bins { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin-top:.8rem; }
+  .st-bins { display:grid; grid-template-columns:repeat(auto-fit, minmax(9.5rem, 1fr)); gap:.8rem; margin-top:.8rem; }
   .st-bin { border-radius:18px; padding:.7rem; min-height:7rem; background:var(--bg); border:2px dashed var(--rule); cursor:pointer; }
   .st-bin[data-bin="right"] { background:var(--good-soft); }
   .st-bin[data-bin="wrong"] { background:var(--pop-soft); }
+  .st-bin[data-bin="half"] { background:color-mix(in srgb, var(--sun) 22%, var(--surface)); }
   .st-binlabel { font:600 1.1rem var(--display); text-align:center; margin-bottom:.4rem; }
   .st-binbody { display:flex; flex-direction:column; gap:.35rem; align-items:center; }
   .st-binbody .st-card { font-size:.95rem; padding:.25rem .6rem; box-shadow:none; cursor:default; }

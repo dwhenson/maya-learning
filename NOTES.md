@@ -36,6 +36,11 @@ Step cards with a sticky emoji "journey" bar: 🎬 watch (short video) → 🧱 
 - `practice.js`: `Practice.mount(el, {goal, generate})`; generator gives prompt, answer (shown exactly as written, so write it in the question's order), optional diagnose/explain
 - `quiz.js`: `.quiz[data-answer][data-why]` multiple choice
 - `numberline.js`: `NumberLine.render(el, {from, to, label})`. A hop on a number line (used in practice explains for directed numbers)
+- `factor.js`: `RowDeal.mount(el, {xs, ones, letter})` deals tiles into equal rows (factorising as sharing); `Factorise.mount(el, {rounds, generate})` + `Factorise.round(h, p, q, L, minus)` drag the HCF outside the bracket
+- `triangle.js`: `TrianglePlay` (drag corners, angles sum to 180°), `Balance` (solve a·x + b = c by doing the same to both sides), `TriangleEq` (angles → equation → collect → balance → check); `TriangleEq.draw(svg, pts, labels)`
+- `percent.js`: `PercentBar.mount(el, {rounds:[{item, price, change}]})` stretchy 10%-block price bar (price hidden until she picks it); `PercentBar.money(n)`
+- `busstop.js`: `BusStop.demo(el, {d, n})` worked example; `BusStop.game(el, {onLevel, onDone})` 6 levels × 5 sums, number pad, stars, timer, best times (localStorage `busstop:v1`)
+- Practice questions can have `promptHTML`, `show`, `before` and `check(text)` for answers Expr can't read (brackets, money, x = …). Tile styles live in course.css.
 - `feedback.js`: Netlify Forms "How did it go, Maya?" form (mood + message, no name/email). The form markup must be written in each page's HTML (Netlify only detects static forms); copy it from a lesson and change the hidden `page` value. It replaced the old "Ask Claude" box, because Maya uses the lessons in a browser without Claude. Only works on the live site, not the local server.
 - Maya opens lessons by double-clicking `Open Lessons.command` (local no-cache server on :8765 → index.html, so lesson updates show without a hard refresh). That way YouTube plays inside the page; from file:// videos open in a new tab instead.
 - To test in the preview pane, run `python3 -m http.server 8765 --bind 127.0.0.1` from the shell (the preview launcher can't read ~/Documents), then use real `left_click_drag` to test drags.
@@ -43,7 +48,11 @@ Step cards with a sticky emoji "journey" bar: 🎬 watch (short video) → 🧱 
 ## Extras
 - `lessons/extra-negative-numbers.html`: a short negative numbers warm-up (which way, add/subtract, sign rule, times/divide). Linked from Lesson 2 and the home page. Point Maya here whenever directed numbers trip her up.
 
-## Planned sequence (adjust to evidence)
+## Lessons so far (2026-11-24)
+1. Brackets are rectangles · 2. Minus inside · 3. Factorising (HCF) · 4. Triangle equations · 5. Percentage change (money) · 6. Bus stop division (game). The home page groups them by topic.
+Lessons 3–6 were requested together by the parent; each stands alone. Lesson numbers are just creation order.
+
+## Planned sequence for brackets (adjust to evidence)
 1. ✅ Brackets are rectangles: a(x + b), positives only
 2. ✅ Minus inside: 4(x − 3). Frog hops for 4 × (−3), red −1 tiles, take-away area piece. Practice is 60% a(x − b), 15% a(b − x), 25% Lesson 1 type
 3. Negative outside: −2(x + 5), −2(x − 5). Sign rules for multiplying

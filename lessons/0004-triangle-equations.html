@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en-GB" data-learner="Maya">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Triangle Equations</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/expr.js"></script>
+<script src="../assets/drag.js"></script>
+<script src="../assets/sounds.js"></script>
+<script src="../assets/lesson.js"></script>
+<script src="../assets/whimsy.js"></script>
+<script src="../assets/triangle.js"></script>
+<script src="../assets/practice.js"></script>
+<script src="../assets/quiz.js"></script>
+<script src="../assets/feedback.js"></script>
+<style>
+  .practice-prompt svg { display:block; width:100%; max-width:340px; height:auto; margin:0 auto; }
+</style>
+</head>
+<body>
+<main>
+
+<header class="hero">
+  <p class="kicker">Maya's maths · Lesson 4</p>
+  <h1>Triangle <span data-sparkles>equations</span> <span class="wiggle">🔺</span></h1>
+  <p class="lede">Hi Maya! 👋 Use one triangle fact to make an equation, then solve it to find the mystery angles. About 20 minutes.</p>
+</header>
+
+<nav class="journey" aria-label="Lesson steps">
+  <a href="#watch" data-step="watch" title="Watch">🎬</a>
+  <a href="#stretch" data-step="stretch" title="Stretch the triangle">📐</a>
+  <a href="#balance" data-step="balance" title="Balance it">⚖️</a>
+  <a href="#puzzles" data-step="puzzles" title="Triangle puzzles">🔺</a>
+  <a href="#practise" data-step="practice" title="Practise">✏️</a>
+  <a href="#remember" data-step="quiz" title="Remember it">🧠</a>
+</nav>
+
+<!-- 1. WATCH -->
+<section class="card" id="watch">
+  <div class="card-head"><span class="bubble">🎬</span><h2>Watch first</h2><span class="chip">4½ min</span></div>
+  <p>Tap ▶ to play. What do the three angles of a triangle add up to?</p>
+  <button class="video" data-yt="QEsjIeSnEHU" data-step="watch" data-label="Angles in a triangle (Corbettmaths) · 4½ min"></button>
+  <details class="reveal">
+    <summary>🍿 Want more? Forming and solving equations</summary>
+    <div class="videos">
+      <button class="video" data-yt="Lz3VkLrDmhE" data-label="Forming equations (Corbettmaths) · 4½ min"></button>
+      <button class="video" data-yt="30S7WxKcPwg" data-label="Solving equations (Corbettmaths) · 8½ min"></button>
+    </div>
+  </details>
+</section>
+
+<!-- 2. STRETCH -->
+<section class="card" id="stretch">
+  <div class="card-head"><span class="bubble">📐</span><h2>Stretch the triangle</h2><span class="chip">2 min</span></div>
+  <p><strong>How to play:</strong> drag the pink corners to make any triangle you like. Watch the three angles, and the total underneath.</p>
+  <div id="play"></div>
+</section>
+
+<!-- 3. BALANCE -->
+<section class="card" id="balance">
+  <div class="card-head"><span class="bubble">⚖️</span><h2>Balance it</h2><span class="chip">4 min</span></div>
+  <div class="box key">
+    <span class="label">⭐ The big idea</span>
+    An <strong>equation</strong> is like a balance: both sides weigh the same. To find <span class="m"><i>x</i></span>, do the <strong>same thing to both sides</strong> until <span class="m"><i>x</i></span> is on its own.
+    <p class="meta" style="margin-bottom:0">Undo the <strong>+ or −</strong> first, then undo the <strong>×</strong> by dividing. Remember <span class="m">3<i>x</i></span> means 3 × <i>x</i>.</p>
+  </div>
+  <p><strong>How to play:</strong> tap the move to do to both sides. Solve 4 to get 4 stars ⭐</p>
+  <div id="balance-game"></div>
+</section>
+
+<!-- 4. PUZZLES -->
+<section class="card" id="puzzles">
+  <div class="card-head"><span class="bubble">🔺</span><h2>Triangle puzzles</h2><span class="chip">5 min</span></div>
+  <p>Now put it together. Three steps: <strong>add</strong> the angles, make it <strong>= 180</strong>, then <strong>solve</strong>.</p>
+  <p><strong>How to play:</strong> drag each angle into the equation (or tap it), pick the tidy version, then solve on the balance.</p>
+  <div id="tri-eq"></div>
+</section>
+
+<!-- 5. PRACTISE -->
+<section class="card" id="practise">
+  <div class="card-head"><span class="bubble">✏️</span><h2>Your turn</h2><span class="chip">5 min</span></div>
+  <p>Find the value of the letter. Jot the equation on paper if it helps. Type just the number and press <strong>Enter</strong> or <strong>Check</strong>.</p>
+  <p class="meta">Get 6 right to finish. If you slip, you'll see every step.</p>
+  <div id="practice"></div>
+</section>
+
+<!-- 6. REMEMBER -->
+<section class="card" id="remember">
+  <div class="card-head"><span class="bubble">🧠</span><h2>Remember it</h2><span class="chip">2 min</span></div>
+  <p>Three last questions. Tap the answer you think is right. No scrolling back up! 💪</p>
+
+  <div class="quiz" data-answer="2" data-hint="The three angles add up to 180°. What's 180 − 50 − 70?" data-why="50 + 70 = 120, and 180 − 120 = 60.">
+    <p>A triangle has angles <span class="m">50°</span>, <span class="m">70°</span> and <span class="m"><i>x</i></span>. What is <span class="m"><i>x</i></span>?</p>
+    <ol>
+      <li><span class="m">50°</span></li>
+      <li><span class="m">70°</span></li>
+      <li><span class="m">60°</span></li>
+      <li><span class="m">120°</span></li>
+    </ol>
+  </div>
+
+  <div class="quiz" data-answer="0" data-hint="Whatever you do, the scale must stay balanced. And you want to get rid of the + 30." data-why="Take 30 from both sides: 3x = 150. Doing it to one side only would unbalance it.">
+    <p>Which is a good first step to solve <span class="m">3<i>x</i> + 30 = 180</span>?</p>
+    <ol>
+      <li>Take 30 from both sides</li>
+      <li>Take 30 from the left only</li>
+      <li>Add 30 to both of the sides</li>
+      <li>Take 3 from both of the sides</li>
+    </ol>
+  </div>
+
+  <div class="quiz" data-answer="1" data-hint="Add them up: x + x + 2x. How many x's is that? Make it equal 180." data-why="x + x + 2x = 4x, and 4x = 180, so x = 45. The angles are 45°, 45° and 90°.">
+    <p>A triangle has angles <span class="m"><i>x</i></span>, <span class="m"><i>x</i></span> and <span class="m">2<i>x</i></span>. What is <span class="m"><i>x</i></span>?</p>
+    <ol>
+      <li><span class="m">30°</span></li>
+      <li><span class="m">45°</span></li>
+      <li><span class="m">60°</span></li>
+      <li><span class="m">90°</span></li>
+    </ol>
+  </div>
+  <p class="quiz-score" style="text-align:center;font-weight:700" aria-live="polite"></p>
+</section>
+
+<form class="card fb-form" name="feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+  <div class="card-head"><span class="bubble">💬</span><h2>How did it go, Maya?</h2></div>
+  <input type="hidden" name="form-name" value="feedback">
+  <input type="hidden" name="page" value="Lesson 4: Triangle equations">
+  <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
+  <fieldset class="fb-moods">
+    <legend>This lesson felt…</legend>
+    <label><input type="radio" name="feeling" value="Easy"><span>😎 Easy</span></label>
+    <label><input type="radio" name="feeling" value="OK"><span>🙂 OK</span></label>
+    <label><input type="radio" name="feeling" value="Tricky"><span>😕 Tricky</span></label>
+    <label><input type="radio" name="feeling" value="Lost"><span>😵‍💫 Lost</span></label>
+  </fieldset>
+  <label for="fb-message"><strong>Anything to say or ask?</strong> <span class="meta">What was confusing? What did you like? What should be next?</span></label>
+  <textarea id="fb-message" name="message" maxlength="2000" placeholder="e.g. I don't get why minus times minus is plus…"></textarea>
+  <div class="fb-row"><button type="submit">Send 💌</button><p class="fb-status meta" aria-live="polite">It'll be read before your next lesson is made.</p></div>
+</form>
+
+<nav class="lessons">
+  <a href="0003-factorising.html">← Lesson 3</a>
+  <a href="../index.html">🏠 All lessons</a>
+  <a href="0005-percentage-change.html">Lesson 5: prices up and down →</a>
+</nav>
+
+</main>
+<script>
+  const rnd = (lo, hi) => lo + Math.floor(Math.random() * (hi - lo + 1));
+  const pickL = () => ["x", "x", "a", "y"][rnd(0, 3)];
+  const ital = s => String(s).replace(/-/g, "−").replace(/([a-z])/g, "<i>$1</i>");
+
+  // A triangle whose angles are expressions in x, all whole numbers of at least 15°.
+  function makeTriangle() {
+    const FORMS = [[1, 0], [2, 0], [3, 0], [1, "k"], [2, "k"], [1, "-k"], [2, "-k"]];
+    for (;;) {
+      const x = 5 * rnd(2, 10);
+      const k = () => 5 * rnd(1, 6);
+      const form = () => { const f = FORMS[rnd(0, FORMS.length - 1)]; return [f[0], f[1] === "k" ? k() : f[1] === "-k" ? -k() : 0]; };
+      const parts = [form(), form()];
+      if (Math.random() < .5) {
+        parts.push([0, 180 - (parts[0][0] * x + parts[0][1]) - (parts[1][0] * x + parts[1][1])]);
+      } else {
+        const c = rnd(1, 2), rest = 180 - (parts[0][0] * x + parts[0][1]) - (parts[1][0] * x + parts[1][1]) - c * x;
+        if (rest % 5 || Math.abs(rest) > 40) continue;
+        parts.push([c, rest]);
+      }
+      const vals = parts.map(([c, kk]) => c * x + kk);
+      if (vals.some(v => v < 15) || parts[2][0] === 0 && vals[2] > 130) continue;
+      return { x, parts: parts.sort(() => Math.random() - .5) };
+    }
+  }
+
+  TrianglePlay.mount(document.getElementById("play"), { onDone: () => Lesson.done("stretch") });
+
+  let bal = 0;
+  Balance.mount(document.getElementById("balance-game"), {
+    rounds: 4,
+    generate() {
+      bal++;
+      const x = rnd(3, 12), L = pickL();
+      if (bal === 1) { const b = 5 * rnd(2, 8); return { a: 1, b, c: x + b, L }; }
+      if (bal === 2) { const a = rnd(2, 5); return { a, b: 0, c: a * x, L }; }
+      const a = rnd(2, 5), b = rnd(1, 9) * (Math.random() < .25 ? -1 : 1) * 2;
+      return { a, b, c: a * x + b, L };
+    },
+    onDone: () => Lesson.done("balance")
+  });
+  TriangleEq.mount(document.getElementById("tri-eq"), {
+    rounds: 3,
+    generate() { const t = makeTriangle(); return TriangleEq.round(t.x, t.parts, pickL()); },
+    onDone: () => Lesson.done("puzzles")
+  });
+
+  Practice.mount(document.getElementById("practice"), {
+    goal: 6, inputmode: "numeric", example: '<span class="m">40</span>',
+    onFinish: () => { Lesson.done("practice"); Celebrate.burst(); },
+    generate() {
+      const t = makeTriangle(), L = pickL(), r = TriangleEq.round(t.x, t.parts, L);
+      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      svg.setAttribute("viewBox", "0 0 320 230");
+      svg.setAttribute("role", "img");
+      svg.setAttribute("aria-label", "Triangle with angles " + r.angles.map(a => a.label).join(", "));
+      TriangleEq.draw(svg, [[35, 200], [290, 200], [115, 35]], r.angles.map(a => (a.c ? a.label : a.label + "°")));
+      const eq = TriangleEq.expr(r.C, r.K, L);
+      return {
+        prompt: r.angles.map(a => a.label).join("|"),
+        promptHTML: svg.outerHTML + `<span class="meta" style="font-size:1rem">Find <i>${L}</i>.</span>`,
+        before: `<i>${L}</i> =`,
+        show: `${ital(L)} = ${t.x}`,
+        check(text) {
+          const v = parseFloat(String(text).replace(/[^\d.\-−]/g, "").replace("−", "-"));
+          if (isNaN(v)) return null;
+          if (v === t.x) return { ok: true };
+          if (r.angles.some(a => a.value === v)) return { ok: false, hint: `${v}° is one of the angles! The question asks for <i>${L}</i>, the letter.` };
+          if (v * r.C === 180) return { ok: false, hint: `Don't forget the numbers! The angles add to <span class="m">${ital(eq)}</span>, not just <span class="m">${ital(TriangleEq.expr(r.C, 0, L))}</span>.` };
+          return { ok: false };
+        },
+        explain(box) {
+          const sum = r.angles.map(a => `(${ital(a.label)})`).join(" + ");
+          const step1 = r.K ? `<br><strong>3.</strong> ${r.K > 0 ? "− " + r.K : "+ " + -r.K} both sides: <span class="m">${ital(TriangleEq.expr(r.C, 0, L))} = ${180 - r.K}</span>` : "";
+          box.innerHTML = `<div class="box" style="margin-top:.8rem">
+            <strong>1.</strong> Add the angles, make it 180: <span class="m">${sum} = 180</span><br>
+            <strong>2.</strong> Tidy up: <span class="m">${ital(eq)} = 180</span>${step1}
+            ${r.C > 1 ? `<br><strong>${r.K ? 4 : 3}.</strong> ÷ ${r.C} both sides: <span class="m">${ital(L)} = ${t.x}</span>` : ""}
+            <br><strong>Check:</strong> <span class="m">${r.angles.map(a => a.value).join(" + ")} = 180</span> ✓</div>`;
+        }
+      };
+    }
+  });
+
+  document.addEventListener("quiz:finished", () => Lesson.done("quiz"));
+</script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en-GB" data-learner="Maya">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Factorising Brackets</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/expr.js"></script>
+<script src="../assets/drag.js"></script>
+<script src="../assets/sounds.js"></script>
+<script src="../assets/lesson.js"></script>
+<script src="../assets/whimsy.js"></script>
+<script src="../assets/tiles.js"></script>
+<script src="../assets/factor.js"></script>
+<script src="../assets/sort.js"></script>
+<script src="../assets/practice.js"></script>
+<script src="../assets/quiz.js"></script>
+<script src="../assets/feedback.js"></script>
+</head>
+<body>
+<main>
+
+<header class="hero">
+  <p class="kicker">Maya's maths · Lesson 3</p>
+  <h1>Factorising: brackets <span data-sparkles>backwards</span> <span class="wiggle">🔄</span></h1>
+  <p class="lede">Hi Maya! 👋 You can turn <span class="m">3(<i>x</i> + 4)</span> into <span class="m">3<i>x</i> + 12</span>. Today you'll go the other way and put the brackets back in. About 20 minutes.</p>
+</header>
+
+<nav class="journey" aria-label="Lesson steps">
+  <a href="#watch" data-step="watch" title="Watch">🎬</a>
+  <a href="#deal" data-step="deal" title="Deal the tiles">🃏</a>
+  <a href="#pull" data-step="pull" title="Pull out the number">🧲</a>
+  <a href="#spot" data-step="spot" title="Spot the mistake">🕵️</a>
+  <a href="#practise" data-step="practice" title="Practise">✏️</a>
+  <a href="#remember" data-step="quiz" title="Remember it">🧠</a>
+</nav>
+
+<!-- 1. WATCH -->
+<section class="card" id="watch">
+  <div class="card-head"><span class="bubble">🎬</span><h2>Watch first</h2><span class="chip">5 min</span></div>
+  <p>Tap ▶ to play. Listen out for the words <strong>"highest common factor"</strong>.</p>
+  <button class="video" data-yt="UrOJrsRv9iI" data-step="watch" data-label="Factorisation (Corbettmaths) · 5 min"></button>
+  <p class="meta">The end of the video takes out letters too, like <span class="m"><i>x</i>(<i>x</i> + 3)</span>. That's for another day, so stop when it gets there if you like.</p>
+</section>
+
+<!-- 2. DEAL -->
+<section class="card" id="deal">
+  <div class="card-head"><span class="bubble">🃏</span><h2>Deal the tiles</h2><span class="chip">4 min</span></div>
+  <div class="box key">
+    <span class="label">⭐ The big idea</span>
+    <strong>Factorising</strong> is expanding backwards. <span class="m">3(<i>x</i> + 4)</span> was 3 equal rows of tiles. So to factorise, share the tiles into <strong>equal rows</strong>.
+  </div>
+  <p><strong>How to play:</strong> tap a button to deal the tiles into that many rows, like dealing cards. 🟢 Green rows are all the same. 🔴 Red rows don't match. Find the <strong>most</strong> rows that work.</p>
+  <div id="deal-game"></div>
+</section>
+
+<!-- 3. PULL OUT THE NUMBER -->
+<section class="card" id="pull">
+  <div class="card-head"><span class="bubble">🧲</span><h2>Pull out the number</h2><span class="chip">4 min</span></div>
+  <div class="box">
+    <span class="label">📖 New words</span>
+    A <strong>common factor</strong> goes into both numbers. The <strong>highest common factor (HCF)</strong> is the biggest one. For 6 and 15 it's 3. Put the HCF outside the bracket, then divide to see what's left inside.
+  </div>
+  <p><strong>How to play:</strong> drag the right pink number into the pink box outside the bracket (or tap it). Then pick what goes inside. Get through 5 for 5 stars ⭐</p>
+  <div id="factorise"></div>
+</section>
+
+<!-- 4. SPOT THE MISTAKE -->
+<section class="card" id="spot">
+  <div class="card-head"><span class="bubble">🕵️</span><h2>Spot the mistake</h2><span class="chip">3 min</span></div>
+  <p>Some of these are right, some are wrong, and some are right but <strong>not fully</strong> factorised: the numbers inside could still share something.</p>
+  <div class="box">
+    <span class="label">🔍 Detective trick</span>
+    Expand it back! If <span class="m">3(2<i>x</i> + 5)</span> expands to the question, it's right.
+    <p class="meta" style="margin-bottom:0">Then look inside the bracket: do <span class="m">2</span> and <span class="m">5</span> share a factor? No? Then it's fully factorised ✓</p>
+  </div>
+  <p><strong>How to play:</strong> drag each card into the right box (or tap a card, then tap a box).</p>
+  <div id="sort"></div>
+</section>
+
+<!-- 5. PRACTISE -->
+<section class="card" id="practise">
+  <div class="card-head"><span class="bubble">✏️</span><h2>Your turn</h2><span class="chip">5 min</span></div>
+  <p>Factorise <strong>fully</strong>. Type it with brackets, like <span class="m">3(2x + 5)</span>. Press <strong>Enter</strong> or <strong>Check</strong>.</p>
+  <p class="meta">Get 8 right to finish. Some have a minus, like Lesson 2. If you slip, you'll see why.</p>
+  <div id="practice"></div>
+</section>
+
+<!-- 6. REMEMBER -->
+<section class="card" id="remember">
+  <div class="card-head"><span class="bubble">🧠</span><h2>Remember it</h2><span class="chip">2 min</span></div>
+  <p>Three last questions. Tap the answer you think is right. No scrolling back up! 💪</p>
+
+  <div class="quiz" data-answer="1" data-hint="Find the biggest number that goes into both 8 and 20." data-why="4 is the highest common factor of 8 and 20. 8x ÷ 4 = 2x and 20 ÷ 4 = 5.">
+    <p>Factorise <strong>fully</strong>: <span class="m">8<i>x</i> + 20</span></p>
+    <ol>
+      <li><span class="m">2(4<i>x</i> + 10)</span></li>
+      <li><span class="m">4(2<i>x</i> + 5)</span></li>
+      <li><span class="m">4(2<i>x</i> + 20)</span></li>
+      <li><span class="m">8(<i>x</i> + 12)</span></li>
+    </ol>
+  </div>
+
+  <div class="quiz" data-answer="2" data-hint="Write the factors of 12 and of 18. Which is the biggest one in both lists?" data-why="Factors of 12: 1, 2, 3, 4, 6, 12. Factors of 18: 1, 2, 3, 6, 9, 18. The biggest in both is 6.">
+    <p>What is the highest common factor of <span class="m">12</span> and <span class="m">18</span>?</p>
+    <ol>
+      <li><span class="m">2</span></li>
+      <li><span class="m">3</span></li>
+      <li><span class="m">6</span></li>
+      <li><span class="m">36</span></li>
+    </ol>
+  </div>
+
+  <div class="quiz" data-answer="3" data-hint="Multiply the 3 by both terms inside Sam's bracket." data-why="3 × 2x = 6x and 3 × 9 = 27, so Sam's answer expands to 6x + 27, not 6x + 9. It should be 3(2x + 3).">
+    <p>Sam writes <span class="m">6<i>x</i> + 9 = 3(2<i>x</i> + 9)</span>. Expand Sam's answer. What do you get?</p>
+    <ol>
+      <li><span class="m">6<i>x</i> + 9</span></li>
+      <li><span class="m">2<i>x</i> + 9</span></li>
+      <li><span class="m">6<i>x</i> + 12</span></li>
+      <li><span class="m">6<i>x</i> + 27</span></li>
+    </ol>
+  </div>
+  <p class="quiz-score" style="text-align:center;font-weight:700" aria-live="polite"></p>
+</section>
+
+<form class="card fb-form" name="feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+  <div class="card-head"><span class="bubble">💬</span><h2>How did it go, Maya?</h2></div>
+  <input type="hidden" name="form-name" value="feedback">
+  <input type="hidden" name="page" value="Lesson 3: Factorising">
+  <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
+  <fieldset class="fb-moods">
+    <legend>This lesson felt…</legend>
+    <label><input type="radio" name="feeling" value="Easy"><span>😎 Easy</span></label>
+    <label><input type="radio" name="feeling" value="OK"><span>🙂 OK</span></label>
+    <label><input type="radio" name="feeling" value="Tricky"><span>😕 Tricky</span></label>
+    <label><input type="radio" name="feeling" value="Lost"><span>😵‍💫 Lost</span></label>
+  </fieldset>
+  <label for="fb-message"><strong>Anything to say or ask?</strong> <span class="meta">What was confusing? What did you like? What should be next?</span></label>
+  <textarea id="fb-message" name="message" maxlength="2000" placeholder="e.g. I don't get why minus times minus is plus…"></textarea>
+  <div class="fb-row"><button type="submit">Send 💌</button><p class="fb-status meta" aria-live="polite">It'll be read before your next lesson is made.</p></div>
+</form>
+
+<p class="meta" style="text-align:center;margin-top:1.5rem">📄 <a href="../reference/expanding-brackets.html">Brackets cheat sheet</a> (now with factorising)</p>
+
+<nav class="lessons">
+  <a href="0002-minus-inside.html">← Lesson 2</a>
+  <a href="../index.html">🏠 All lessons</a>
+  <a href="0004-triangle-equations.html">Lesson 4: triangle equations →</a>
+</nav>
+
+</main>
+<script>
+  const rnd = (lo, hi) => lo + Math.floor(Math.random() * (hi - lo + 1));
+  const gcd = Factorise.gcd;
+  const pickLetter = () => ["x", "x", "y", "n", "a"][rnd(0, 4)];
+  const term = (c, L) => (c === 1 ? L : c + L);
+
+  // h × (pL ± q) with p and q sharing nothing, so h is the HCF.
+  function pick() {
+    let h, p, q;
+    do { h = rnd(2, 6); p = rnd(1, 5); q = rnd(1, 9); } while (gcd(p, q) !== 1 || (p === 1 && q === 1));
+    return { h, p, q };
+  }
+
+  RowDeal.mount(document.getElementById("deal-game"), { xs: 6, ones: 9, letter: "x", onDone: () => Lesson.done("deal") });
+
+  Factorise.mount(document.getElementById("factorise"), {
+    rounds: 5,
+    generate() { const { h, p, q } = pick(); return Factorise.round(h, p, q, pickLetter(), Math.random() < .25); },
+    onDone: () => Lesson.done("pull")
+  });
+
+  Sort.mount(document.getElementById("sort"), {
+    bins: [ { id: "right", label: "✅ Fully factorised" }, { id: "half", label: "🟡 Right, not fully" }, { id: "wrong", label: "🙈 Wrong" } ],
+    cards: [
+      { html: "4<i>x</i> + 8 = 4(<i>x</i> + 2)", bin: "right", why: "Expands back to 4<i>x</i> + 8, and <i>x</i> and 2 share nothing.", hint: "Expand it back. Then check: can the inside share anything more?" },
+      { html: "6<i>x</i> + 12 = 2(3<i>x</i> + 6)", bin: "half", why: "It expands back correctly, but 3 and 6 still share a 3. Fully: 6(<i>x</i> + 2).", hint: "Expand it back first. Then look inside: do 3 and 6 share a factor?" },
+      { html: "10<i>x</i> + 15 = 5(2<i>x</i> + 3)", bin: "right", why: "5 is the HCF of 10 and 15. Expands back perfectly.", hint: "Expand it back. Then check: can the inside share anything more?" },
+      { html: "9<i>x</i> + 6 = 3(3<i>x</i> + 6)", bin: "wrong", why: "3 × 6 = 18, not 6. It should be 3(3<i>x</i> + 2).", hint: "Expand it back: what's 3 × 6?" },
+      { html: "12<i>x</i> + 18 = 3(4<i>x</i> + 6)", bin: "half", why: "Correct, but 4 and 6 still share a 2. The HCF is 6: 6(2<i>x</i> + 3).", hint: "Expand it back first. Then look inside: do 4 and 6 share a factor?" },
+      { html: "5<i>x</i> + 10 = 5(<i>x</i> + 10)", bin: "wrong", why: "5 × 10 = 50, not 10. It should be 5(<i>x</i> + 2).", hint: "Expand it back: what's 5 × 10?" }
+    ],
+    onDone: () => Lesson.done("spot")
+  });
+
+  // Read answers like "3(2x + 5)" or "3(2x-5)": number outside, then a bracket Expr can read.
+  function readBracket(text) {
+    const m = String(text).replace(/\s/g, "").replace(/[−–]/g, "-").match(/^(\d*)\((.+)\)$/);
+    if (!m) return null;
+    const inside = Expr.parse(m[2]);
+    return inside ? { k: m[1] ? +m[1] : 1, inside } : null;
+  }
+
+  Practice.mount(document.getElementById("practice"), {
+    goal: 8,
+    example: '<span class="m">3(2<i>x</i> + 5)</span>',
+    onFinish: () => { Lesson.done("practice"); Celebrate.burst(); },
+    generate() {
+      const { h, p, q } = pick(), L = pickLetter(), minus = Math.random() < .25;
+      const a = h * p, b = h * q, s = minus ? "-" : "+";
+      const prompt = `${term(a, L)} ${s} ${b}`;
+      const show = Expr.html(`${h}(${term(p, L)} ${s} ${q})`);
+      return {
+        prompt, show,
+        check(text) {
+          const r = readBracket(text);
+          if (!r) return null;
+          const target = Expr.parse(prompt);
+          const expanded = {}; for (const key in r.inside) expanded[key] = r.inside[key] * r.k;
+          if (!Expr.equal(expanded, target)) {
+            const back = Expr.html(Expr.show(expanded));
+            return { ok: false, hint: `Expand yours back: <span class="m">${Expr.html(text.trim())}</span> gives <span class="m">${back}</span>, not <span class="m">${Expr.html(prompt)}</span>.` };
+          }
+          if (r.k !== h) return { ok: false, hint: `That expands back correctly, so it's not wrong, but it's <strong>not fully</strong> factorised: the numbers inside can still share a ${h / r.k}. Use the HCF of ${a} and ${b}.` };
+          return { ok: true };
+        },
+        explain(box) {
+          box.innerHTML = `<div class="box" style="margin-top:.8rem">
+            <strong>1. HCF of ${a} and ${b}:</strong> ${h}<br>
+            <strong>2. Divide each term by ${h}:</strong> <span class="m">${Expr.html(term(a, L))} ÷ ${h} = ${Expr.html(term(p, L))}</span>, <span class="m">${b} ÷ ${h} = ${q}</span><br>
+            <strong>So:</strong> <span class="m">${Expr.html(prompt)} = ${show}</span></div>`;
+        }
+      };
+    }
+  });
+
+  document.addEventListener("quiz:finished", () => Lesson.done("quiz"));
+</script>
+</body>
+</html>

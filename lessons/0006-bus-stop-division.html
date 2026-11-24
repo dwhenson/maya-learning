@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en-GB" data-learner="Maya">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bus Stop Division</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/expr.js"></script>
+<script src="../assets/sounds.js"></script>
+<script src="../assets/lesson.js"></script>
+<script src="../assets/whimsy.js"></script>
+<script src="../assets/busstop.js"></script>
+<script src="../assets/quiz.js"></script>
+<script src="../assets/feedback.js"></script>
+</head>
+<body>
+<main>
+
+<header class="hero">
+  <p class="kicker">Maya's maths · Lesson 6</p>
+  <h1>Bus stop <span data-sparkles>division</span> <span class="wiggle">🚌</span></h1>
+  <p class="lede">Hi Maya! 👋 A neat way to divide big numbers in your head, one digit at a time. Learn it in 5 minutes, then play through the levels as often as you like.</p>
+</header>
+
+<nav class="journey" aria-label="Lesson steps">
+  <a href="#watch" data-step="watch" title="Watch">🎬</a>
+  <a href="#how" data-step="demo" title="How it works">👀</a>
+  <a href="#play" data-step="game" title="Play the levels">🎮</a>
+  <a href="#remember" data-step="quiz" title="Remember it">🧠</a>
+</nav>
+
+<!-- 1. WATCH -->
+<section class="card" id="watch">
+  <div class="card-head"><span class="bubble">🎬</span><h2>Watch first</h2><span class="chip">4 min</span></div>
+  <p>Tap ▶ to play. Look at the little numbers that hop to the next digit.</p>
+  <button class="video" data-yt="q3Jk6W4oDgw" data-step="watch" data-label="Division (Corbettmaths) · 4 min"></button>
+</section>
+
+<!-- 2. HOW IT WORKS -->
+<section class="card" id="how">
+  <div class="card-head"><span class="bubble">👀</span><h2>How it works</h2><span class="chip">2 min</span></div>
+  <div class="box key">
+    <span class="label">⭐ The big idea</span>
+    Go digit by digit, left to right. At each stop ask: <strong>how many fit?</strong> Write it on the roof. Anything <strong>left over</strong> hops onto the next digit, so 1 left over in front of a 9 makes 19.
+  </div>
+  <p><strong>How to play:</strong> tap <strong>Next step</strong> and watch the bus work out <span class="m">896 ÷ 7</span>.</p>
+  <div id="demo"></div>
+</section>
+
+<!-- 3. PLAY -->
+<section class="card" id="play">
+  <div class="card-head"><span class="bubble">🎮</span><h2>Play the levels</h2><span class="chip">as long as you like</span></div>
+  <p><strong>How to play:</strong> the bus stops at the yellow digit. Tap the answer on the number pad (or type it). Finish 5 sums to clear a level and unlock the next.</p>
+  <p class="meta">⭐⭐⭐ for no slips. Stuck on a times table? Tap 🧮 to peek. Your stars and best times are saved on this device, so come back and beat them!</p>
+  <div id="game"></div>
+</section>
+
+<!-- 4. REMEMBER -->
+<section class="card" id="remember">
+  <div class="card-head"><span class="bubble">🧠</span><h2>Remember it</h2><span class="chip">2 min</span></div>
+  <p>Three questions. Use paper if you like. 💪</p>
+
+  <div class="quiz" data-answer="2" data-hint="Bus stop it: 6s in 7? Then carry what's left onto the 2." data-why="6s in 7 = 1, carry 1 → 12. 6s in 12 = 2. So 72 ÷ 6 = 12.">
+    <p>What is <span class="m">72 ÷ 6</span>?</p>
+    <ol>
+      <li><span class="m">11</span></li>
+      <li><span class="m">13</span></li>
+      <li><span class="m">12</span></li>
+      <li><span class="m">14</span></li>
+    </ol>
+  </div>
+
+  <div class="quiz" data-answer="0" data-hint="How many 4s fit into 1? None, so the 1 hops onto the next digit." data-why="4s in 1 = 0 (carry 1 → 15). 4s in 15 = 3 r 3 (carry 3 → 36). 4s in 36 = 9. So it's 39.">
+    <p>What is <span class="m">156 ÷ 4</span>?</p>
+    <ol>
+      <li><span class="m">39</span></li>
+      <li><span class="m">31</span></li>
+      <li><span class="m">49</span></li>
+      <li><span class="m">36</span></li>
+    </ol>
+  </div>
+
+  <div class="quiz" data-answer="3" data-hint="Bus stop 100 ÷ 8. What's left over at the end?" data-why="100 ÷ 8 = 12 r 4. 12 full minibuses take 96 people, and the 4 left over still need a minibus, so you need 13.">
+    <p>🚐 A school trip has 100 people. Each minibus takes 8. How many minibuses do they need?</p>
+    <ol>
+      <li><span class="m">12</span></li>
+      <li><span class="m">12 r 4</span></li>
+      <li><span class="m">8</span></li>
+      <li><span class="m">13</span></li>
+    </ol>
+  </div>
+  <p class="quiz-score" style="text-align:center;font-weight:700" aria-live="polite"></p>
+</section>
+
+<form class="card fb-form" name="feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+  <div class="card-head"><span class="bubble">💬</span><h2>How did it go, Maya?</h2></div>
+  <input type="hidden" name="form-name" value="feedback">
+  <input type="hidden" name="page" value="Lesson 6: Bus stop division">
+  <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
+  <fieldset class="fb-moods">
+    <legend>This lesson felt…</legend>
+    <label><input type="radio" name="feeling" value="Easy"><span>😎 Easy</span></label>
+    <label><input type="radio" name="feeling" value="OK"><span>🙂 OK</span></label>
+    <label><input type="radio" name="feeling" value="Tricky"><span>😕 Tricky</span></label>
+    <label><input type="radio" name="feeling" value="Lost"><span>😵‍💫 Lost</span></label>
+  </fieldset>
+  <label for="fb-message"><strong>Anything to say or ask?</strong> <span class="meta">What was confusing? What did you like? What should be next?</span></label>
+  <textarea id="fb-message" name="message" maxlength="2000" placeholder="e.g. I don't get why minus times minus is plus…"></textarea>
+  <div class="fb-row"><button type="submit">Send 💌</button><p class="fb-status meta" aria-live="polite">It'll be read before your next lesson is made.</p></div>
+</form>
+
+<nav class="lessons">
+  <a href="0005-percentage-change.html">← Lesson 5</a>
+  <a href="../index.html">🏠 All lessons</a>
+</nav>
+
+</main>
+<script>
+  BusStop.demo(document.getElementById("demo"), { d: 7, n: 896, onDone: () => Lesson.done("demo") });
+  BusStop.game(document.getElementById("game"), { onLevel: k => { if (k >= 2) Lesson.done("game"); } });
+  document.addEventListener("quiz:finished", () => Lesson.done("quiz"));
+</script>
+</body>
+</html>

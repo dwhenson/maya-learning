@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en-GB" data-learner="Maya">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Percentage Change</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/expr.js"></script>
+<script src="../assets/drag.js"></script>
+<script src="../assets/sounds.js"></script>
+<script src="../assets/lesson.js"></script>
+<script src="../assets/whimsy.js"></script>
+<script src="../assets/percent.js"></script>
+<script src="../assets/sort.js"></script>
+<script src="../assets/practice.js"></script>
+<script src="../assets/quiz.js"></script>
+<script src="../assets/feedback.js"></script>
+<style>
+  .pieces { display:grid; grid-template-columns:repeat(auto-fit, minmax(8.5rem, 1fr)); gap:.5rem; margin:.8rem 0; }
+  .pieces .box { margin:0; text-align:center; }
+  .pieces strong { font:700 1.3rem var(--display); display:block; color:var(--accent); }
+  .shop { font-size:1.15rem; line-height:1.5; }
+</style>
+</head>
+<body>
+<main>
+
+<header class="hero">
+  <p class="kicker">Maya's maths · Lesson 5</p>
+  <h1>Prices up, prices <span data-sparkles>down</span> <span class="wiggle">🛍️</span></h1>
+  <p class="lede">Hi Maya! 👋 Sales, price rises, discounts. Today you'll work out new prices when they change by a percentage. About 20 minutes.</p>
+</header>
+
+<nav class="journey" aria-label="Lesson steps">
+  <a href="#watch" data-step="watch" title="Watch">🎬</a>
+  <a href="#stretch" data-step="bar" title="Stretch the price">🧱</a>
+  <a href="#pieces" data-step="pieces" title="Find the pieces">🧮</a>
+  <a href="#match" data-step="match" title="Multiplier match">🏷️</a>
+  <a href="#practise" data-step="practice" title="Practise">✏️</a>
+  <a href="#remember" data-step="quiz" title="Remember it">🧠</a>
+</nav>
+
+<!-- 1. WATCH -->
+<section class="card" id="watch">
+  <div class="card-head"><span class="bubble">🎬</span><h2>Watch first</h2><span class="chip">5 min</span></div>
+  <p>Tap ▶ to play. Watch how the video finds 10% first.</p>
+  <button class="video" data-yt="tUtgC7ZrsRc" data-step="watch" data-label="Increasing and decreasing by a percentage (Corbettmaths) · 5 min"></button>
+  <details class="reveal">
+    <summary>🍿 Want more? The multiplier method</summary>
+    <div class="videos">
+      <button class="video" data-yt="uHYywMkaZC8" data-label="Multipliers (Corbettmaths) · 8 min"></button>
+    </div>
+  </details>
+</section>
+
+<!-- 2. STRETCH -->
+<section class="card" id="stretch">
+  <div class="card-head"><span class="bubble">🧱</span><h2>Stretch the price</h2><span class="chip">4 min</span></div>
+  <div class="box key">
+    <span class="label">⭐ The big idea</span>
+    The old price is <strong>100%</strong>. Chop it into 10 blocks, so each block is <strong>10%</strong>.
+    Going <strong>up</strong> 20%? Add 2 blocks. <strong>Down</strong> 30%? Take 3 away.
+  </div>
+  <p><strong>How to play:</strong> drag the purple handle (or tap the bar) to stretch or shrink the price. Then pick the new price.</p>
+  <div id="bar"></div>
+</section>
+
+<!-- 3. PIECES -->
+<section class="card" id="pieces">
+  <div class="card-head"><span class="bubble">🧮</span><h2>Find the pieces</h2><span class="chip">4 min</span></div>
+  <p>Not every percentage is a whole number of 10% blocks. Build it from these pieces:</p>
+  <div class="pieces">
+    <div class="box"><strong>50%</strong>half it</div>
+    <div class="box"><strong>10%</strong>÷ 10</div>
+    <div class="box"><strong>5%</strong>half of 10%</div>
+    <div class="box"><strong>1%</strong>÷ 100</div>
+  </div>
+  <p class="meta">Example: 15% of £60 → 10% is £6, 5% is £3, so 15% is <strong>£9</strong>.</p>
+  <p><strong>How to play:</strong> type how much the percentage is worth, like <span class="m">9</span> or <span class="m">4.50</span>. Get 5 right.</p>
+  <div id="practice-of"></div>
+</section>
+
+<!-- 4. MATCH -->
+<section class="card" id="match">
+  <div class="card-head"><span class="bubble">🏷️</span><h2>Multiplier match</h2><span class="chip">3 min</span></div>
+  <div class="box">
+    <span class="label">⚡ The shortcut</span>
+    Up 20% means you pay 100% + 20% = <strong>120%</strong>, and 120% = <strong>1.2</strong>. So just do <span class="m">price × 1.2</span>.<br>
+    Down 20% means you pay 100% − 20% = <strong>80%</strong>, so do <span class="m">price × 0.8</span>.
+    <p class="meta" style="margin-bottom:0">This number is called the <strong>multiplier</strong>. It's great with a calculator.</p>
+  </div>
+  <p><strong>How to play:</strong> drag each card onto its multiplier (or tap a card, then tap a box).</p>
+  <div id="sort"></div>
+</section>
+
+<!-- 5. PRACTISE -->
+<section class="card" id="practise">
+  <div class="card-head"><span class="bubble">✏️</span><h2>Your turn: the shop</h2><span class="chip">5 min</span></div>
+  <p>Work out each new price. Use blocks or the multiplier, whichever you like. A calculator is fine. Type the price, like <span class="m">41.40</span>.</p>
+  <p class="meta">Get 8 right to finish. If you slip, you'll see both methods.</p>
+  <div id="practice"></div>
+</section>
+
+<!-- 6. REMEMBER -->
+<section class="card" id="remember">
+  <div class="card-head"><span class="bubble">🧠</span><h2>Remember it</h2><span class="chip">2 min</span></div>
+  <p>Three last questions. Tap the answer you think is right. No scrolling back up! 💪</p>
+
+  <div class="quiz" data-answer="1" data-hint="Find 10% of £50 first, then add it on." data-why="10% of £50 is £5, so the new price is £50 + £5 = £55.">
+    <p>A £50 game goes <strong>up</strong> by 10%. What's the new price?</p>
+    <ol>
+      <li>£5</li>
+      <li>£55</li>
+      <li>£60</li>
+      <li>£45</li>
+    </ol>
+  </div>
+
+  <div class="quiz" data-answer="2" data-hint="If 30% comes off, what percentage do you still pay?" data-why="You pay 100% − 30% = 70%, and 70% = 0.7, so multiply by 0.7.">
+    <p>Which multiplier takes <strong>30% off</strong> a price?</p>
+    <ol>
+      <li><span class="m">× 0.3</span></li>
+      <li><span class="m">× 1.3</span></li>
+      <li><span class="m">× 0.7</span></li>
+      <li><span class="m">× 0.03</span></li>
+    </ol>
+  </div>
+
+  <div class="quiz" data-answer="1" data-hint="25% isn't £25. What's 25% of £80? (It's a quarter.)" data-why="25% of £80 is a quarter of £80, which is £20. So the jumper costs £80 − £20 = £60, not £55.">
+    <p>Sam says an £80 jumper with <strong>25% off</strong> costs £55. Is Sam right?</p>
+    <ol>
+      <li>Yes: 80 − 25 makes £55</li>
+      <li>No: 25% is £20, so £60</li>
+      <li>No: it should be £105</li>
+      <li>No: it should be £64</li>
+    </ol>
+  </div>
+  <p class="quiz-score" style="text-align:center;font-weight:700" aria-live="polite"></p>
+</section>
+
+<form class="card fb-form" name="feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+  <div class="card-head"><span class="bubble">💬</span><h2>How did it go, Maya?</h2></div>
+  <input type="hidden" name="form-name" value="feedback">
+  <input type="hidden" name="page" value="Lesson 5: Percentage change">
+  <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
+  <fieldset class="fb-moods">
+    <legend>This lesson felt…</legend>
+    <label><input type="radio" name="feeling" value="Easy"><span>😎 Easy</span></label>
+    <label><input type="radio" name="feeling" value="OK"><span>🙂 OK</span></label>
+    <label><input type="radio" name="feeling" value="Tricky"><span>😕 Tricky</span></label>
+    <label><input type="radio" name="feeling" value="Lost"><span>😵‍💫 Lost</span></label>
+  </fieldset>
+  <label for="fb-message"><strong>Anything to say or ask?</strong> <span class="meta">What was confusing? What did you like? What should be next?</span></label>
+  <textarea id="fb-message" name="message" maxlength="2000" placeholder="e.g. I don't get why minus times minus is plus…"></textarea>
+  <div class="fb-row"><button type="submit">Send 💌</button><p class="fb-status meta" aria-live="polite">It'll be read before your next lesson is made.</p></div>
+</form>
+
+<nav class="lessons">
+  <a href="0004-triangle-equations.html">← Lesson 4</a>
+  <a href="../index.html">🏠 All lessons</a>
+  <a href="0006-bus-stop-division.html">Lesson 6: bus stop division →</a>
+</nav>
+
+</main>
+<script>
+  const rnd = (lo, hi) => lo + Math.floor(Math.random() * (hi - lo + 1));
+  const pickOf = arr => arr[rnd(0, arr.length - 1)];
+  const money = PercentBar.money;
+  const ITEMS = [["👟", "pair of trainers"], ["🎧", "pair of headphones"], ["🎮", "game"], ["📱", "phone case"], ["🎟️", "concert ticket"],
+    ["🛹", "skateboard"], ["🧥", "coat"], ["🎒", "school bag"], ["🎨", "paint set"], ["⌚", "watch"]];
+  // Reads "£41.40", "41.4", "41.40p"… as a number of pounds.
+  const readMoney = t => { const v = parseFloat(String(t).replace(/[£,\s]/g, "")); return isNaN(v) ? null : v; };
+  const same = (a, b) => Math.abs(a - b) < .005;
+
+  // "15% of £60" as building blocks: 10% = £6, 5% = £3 → 15% = £9
+  function build(pct, amount) {
+    const parts = [];
+    let left = pct;
+    [[50, "half"], [10, "÷ 10"], [5, "half of 10%"], [1, "÷ 100"]].forEach(([p]) => {
+      while (left >= p) { parts.push(p); left -= p; }
+    });
+    const groups = {};
+    parts.forEach(p => groups[p] = (groups[p] || 0) + 1);
+    const lines = Object.keys(groups).sort((a, b) => b - a).map(p => {
+      const each = amount * p / 100, k = groups[p];
+      if (+p === 5) return `10% = ${money(amount / 10)}, so 5% = ${money(each)}`;
+      return k > 1 ? `${p}% = ${money(each)}, so ${k * p}% = ${money(each * k)}` : `${p}% = ${money(each)}`;
+    });
+    return lines.join("<br>") + (Object.keys(groups).length > 1 || groups[Object.keys(groups)[0]] > 1 ? `<br><strong>${pct}% = ${money(amount * pct / 100)}</strong>` : "");
+  }
+
+  PercentBar.mount(document.getElementById("bar"), {
+    rounds: [
+      { item: "👟 Trainers", price: 40, change: 20 },
+      { item: "🎧 Headphones", price: 60, change: -30 },
+      { item: "🎟️ Ticket", price: 35, change: 10 },
+      { item: "🛹 Skateboard", price: 90, change: -40 }
+    ],
+    onDone: () => Lesson.done("bar")
+  });
+
+  Practice.mount(document.getElementById("practice-of"), {
+    goal: 5, before: "= £", inputmode: "decimal", example: '<span class="m">4.50</span>',
+    onFinish: () => Lesson.done("pieces"),
+    generate() {
+      const pct = pickOf([10, 20, 30, 5, 15, 25, 50, 35, 1, 2]);
+      const amount = pct < 5 ? 100 * rnd(2, 9) : pct % 10 ? 20 * rnd(1, 9) : 10 * rnd(2, 20);
+      const ans = amount * pct / 100;
+      return {
+        prompt: `${pct}% of £${amount}`,
+        promptHTML: `<span class="m">${pct}% of £${amount}</span>`,
+        show: money(ans),
+        check(t) {
+          const v = readMoney(t); if (v === null) return null;
+          if (same(v, ans)) return { ok: true };
+          if (same(v, pct)) return { ok: false, hint: `${pct}% isn't £${pct}! It's ${pct} hundredths of £${amount}.` };
+          return { ok: false };
+        },
+        explain(box) { box.innerHTML = `<div class="box" style="margin-top:.8rem">${build(pct, amount)}</div>`; }
+      };
+    }
+  });
+
+  Sort.mount(document.getElementById("sort"), {
+    bins: [ { id: "a", label: "× 1.2" }, { id: "b", label: "× 0.8" }, { id: "c", label: "× 1.05" }, { id: "d", label: "× 0.95" } ],
+    cards: [
+      { html: "Up 20%", bin: "a", why: "100% + 20% = 120% = 1.2", hint: "Up means more than 100%. What's 100% + 20%?" },
+      { html: "20% off in the sale", bin: "b", why: "You pay 100% − 20% = 80% = 0.8", hint: "Off means you pay less than 100%. What's 100% − 20%?" },
+      { html: "Price rise of 5%", bin: "c", why: "100% + 5% = 105% = 1.05", hint: "A rise means more than 100%. What's 100% + 5%?" },
+      { html: "5% discount", bin: "d", why: "You pay 100% − 5% = 95% = 0.95", hint: "A discount means you pay less. What's 100% − 5%?" },
+      { html: "Add 20% VAT", bin: "a", why: "VAT is added on top: 120% = 1.2", hint: "Adding makes it bigger. What's 100% + 20%?" },
+      { html: "Down 5%", bin: "d", why: "100% − 5% = 95% = 0.95", hint: "Down means less than 100%. What's 100% − 5%?" },
+      { html: "Pay 80% of the price", bin: "b", why: "80% = 0.8", hint: "80% as a decimal is…?" },
+      { html: "5% more", bin: "c", why: "105% = 1.05. Careful, it's not 1.5 (that would be 50% more)!", hint: "100% + 5% = 105%. As a decimal?" }
+    ],
+    onDone: () => Lesson.done("match")
+  });
+
+  Practice.mount(document.getElementById("practice"), {
+    goal: 8, before: "£", inputmode: "decimal", example: '<span class="m">41.40</span>',
+    onFinish: () => { Lesson.done("practice"); Celebrate.burst(); },
+    generate() {
+      const item = pickOf(ITEMS), up = Math.random() < .5;
+      const pct = pickOf([10, 20, 30, 40, 5, 15, 25, 50]);
+      const amount = pct % 10 ? 4 * rnd(3, 30) : 10 * rnd(2, 15) + (Math.random() < .3 ? 5 : 0);
+      const change = amount * pct / 100, ans = up ? amount + change : amount - change;
+      const story = up
+        ? pickOf([`The price goes up by ${pct}%.`, `There's a ${pct}% price rise.`, `It costs ${pct}% more next month.`])
+        : pickOf([`Sale: ${pct}% off!`, `There's a ${pct}% discount.`, `The price drops by ${pct}%.`]);
+      const mult = (100 + (up ? pct : -pct)) / 100;
+      return {
+        prompt: `${item[1]} ${amount} ${up ? "+" : "-"}${pct}`,
+        promptHTML: `<span class="shop">${item[0]} A ${item[1]} costs <strong>£${amount}</strong>.<br>${story}<br>What's the new price?</span>`,
+        show: money(ans),
+        check(t) {
+          const v = readMoney(t); if (v === null) return null;
+          if (same(v, ans)) return { ok: true, tidy: `${window.Lesson ? Lesson.praise() : "Correct!"} The new price is <strong>${money(ans)}</strong>.` };
+          if (same(v, change)) return { ok: false, hint: `${money(change)} is how much it ${up ? "goes up" : "comes off"}. Now ${up ? "add it to" : "take it away from"} £${amount}.` };
+          if (same(v, up ? amount - change : amount + change)) return { ok: false, hint: `Wrong way! This price goes <strong>${up ? "up" : "down"}</strong>.` };
+          if (same(v, up ? amount + pct : amount - pct)) return { ok: false, hint: `${pct}% of £${amount} isn't £${pct}. Find 10% first.` };
+          return { ok: false };
+        },
+        explain(box) {
+          box.innerHTML = `<div class="box" style="margin-top:.8rem">
+            <strong>Blocks:</strong><br>${build(pct, amount)}<br>£${amount} ${up ? "+" : "−"} ${money(change)} = <strong>${money(ans)}</strong>
+            <hr style="border:0;border-top:1px solid var(--rule)">
+            <strong>Multiplier:</strong> ${up ? "100% + " : "100% − "}${pct}% = ${100 + (up ? pct : -pct)}%, so <span class="m">£${amount} × ${mult} = ${money(ans)}</span></div>`;
+        }
+      };
+    }
+  });
+
+  document.addEventListener("quiz:finished", () => Lesson.done("quiz"));
+</script>
+</body>
+</html>

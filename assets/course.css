@@ -132,6 +132,12 @@ details.reveal { background: var(--teal-soft); border-radius: 14px; padding: .7r
 details.reveal summary { font-weight: 700; cursor: pointer; }
 details.reveal[open] summary { margin-bottom: .5rem; }
 
+/* ---------- Algebra tiles (shared by tiles.js, factor.js and tile keys) ---------- */
+.tile { display:inline-grid; place-items:center; height:var(--u, 36px); border-radius:9px; border:2px solid; font:800 1.1rem var(--serif); color:var(--ink); flex:none; }
+.tile.tx { width:calc(var(--u, 36px) * 2.55); background:var(--part-a); border-color:var(--part-a-edge); font-style:italic; }
+.tile.t1 { width:var(--u, 36px); background:var(--part-b); border-color:var(--part-b-edge); }
+.tile.tn { width:var(--u, 36px); background:var(--bad-soft); border-color:var(--bad); color:var(--bad); font-size:.95rem; }
+
 /* ---------- Figures ---------- */
 figure { margin: 1.25rem 0; }
 figcaption { font-size: .9rem; color: var(--muted); margin-top: .5rem; text-align: center; }
@@ -236,7 +242,7 @@ dialog.video-modal.short .vm-frame { aspect-ratio: 9 / 16; max-height: calc(92vh
   border-radius: var(--radius); padding: 1rem 1.2rem; margin-top: 1.5rem;
 }
 .ask .icon { font-size: 1.8rem; }
-nav.lessons { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2rem; font-weight: 700; }
+nav.lessons { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .6rem 1rem; margin-top: 2rem; font-weight: 700; }
 
 /* ---------- Confetti (celebrate.js) ---------- */
 .confetti { position: fixed; top: -12px; width: 10px; height: 14px; border-radius: 3px; z-index: 2000; pointer-events: none;
