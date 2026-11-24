@@ -51,6 +51,10 @@ async function networkFirst(req) {
   } catch (e) {
     const hit = await cache.match(req, { ignoreSearch: true });
     if (hit) return hit;
+    // Netlify's "pretty URLs" link to /lessons/name, but the cache holds /lessons/name.html.
+    const path = new URL(req.url).pathname;
+    const alt = path.endsWith("/") ? path + "index.html" : /\.[a-z0-9]+$/i.test(path) ? null : path + ".html";
+    if (alt) { const altHit = await cache.match(alt); if (altHit) return altHit; }
     if (req.mode === "navigate") {
       const home = await cache.match("/index.html") || await cache.match("/");
       if (home) return home;
