@@ -81,7 +81,16 @@
     m.classList.toggle("short", btn.classList.contains("short"));
     m.querySelector(".vm-title").textContent = label;
     const frame = m.querySelector(".vm-frame");
-    if (/^https?:$/.test(location.protocol)) {
+    if (navigator.onLine === false) {
+      // The app works offline, but videos come from YouTube.
+      frame.innerHTML = `
+        <div class="vm-fallback">
+          <div>
+            <p>📶 Videos need the internet.</p>
+            <p class="meta">Everything else in the lesson works offline. Watch this one next time you're online!</p>
+          </div>
+        </div>`;
+    } else if (/^https?:$/.test(location.protocol)) {
       const f = document.createElement("iframe");
       f.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1${s ? "&start=" + s : ""}`;
       f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";

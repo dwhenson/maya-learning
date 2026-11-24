@@ -64,9 +64,17 @@ Interleave earlier types into each new practice set (spacing).
 ## Glossary
 - No GLOSSARY.md yet. Add "expand" and "term" once Maya has used them correctly.
 
+## App (PWA) on Maya's iPhone 12, landscape only (2026-11-24)
+- Maya uses the site as a Home Screen app on an **iPhone 12, held landscape (844 × 390)**. No other phones. Design every new activity so the part she interacts with fits in ~360 px of height; put picture and controls side by side. Shared rules live in course.css under `@media (orientation: landscape) and (max-height: 500px)`; component-specific ones in each component's CSS. Desktop and portrait still work.
+- Safe areas: `viewport-fit=cover` + `env(safe-area-inset-*)` padding on `main` and the sound button.
+- Every page's `<head>` has the PWA tags (manifest, apple-touch-icon, theme colour, `assets/pwa.js`). Copy them into any new page.
+- Offline: `sw.js` (network first, cache fallback). `build.sh` (Netlify build) copies public files to dist/, stamps sw.js with the commit, and writes `precache.json` listing every file, so new lessons are cached automatically. Videos and the feedback form need internet (the video pop-up says so offline).
+- Fonts are self-hosted in assets/fonts (latin subset, OFL). Icon source: icons/icon.svg (rendered with `qlmanage`, resized with `sips`).
+- Home Screen app storage is separate from Safari's, so stars/progress made in Safari don't carry over.
+
 ## Publishing
 - Live site: https://maya-learning.netlify.app (Netlify, deploys automatically on every push to `main`)
 - Repo: https://github.com/dwhenson/maya-learning (public, by the parent's choice)
-- `netlify.toml` copies only `index.html`, `lessons/`, `assets/`, `reference/` into `dist/`, so NOTES, MISSION, RESOURCES and learning records are in the repo but NOT on the website. Add any new public folder to that copy command.
+- `build.sh` (run by netlify.toml) copies only `index.html`, `manifest.webmanifest`, `sw.js`, `lessons/`, `assets/`, `reference/`, `icons/` into `dist/`, so NOTES, MISSION, RESOURCES and learning records are in the repo but NOT on the website. Add any new public folder to the `cp` line in build.sh.
 - After a new lesson: add it to `index.html`, commit, `git push`. Live in about a minute.
 - **Maya's feedback:** Netlify dashboard → site maya-learning → Forms → `feedback`. Read these before planning each new lesson, and record anything useful in a learning record.

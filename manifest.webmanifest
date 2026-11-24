@@ -1,0 +1,19 @@
+{
+  "name": "Maya's Maths",
+  "short_name": "Maya's Maths",
+  "description": "Maya's Year 8 maths lessons: videos, drag-and-drop puzzles and games.",
+  "lang": "en-GB",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#f6f2ff",
+  "theme_color": "#6c4ce0",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icons/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

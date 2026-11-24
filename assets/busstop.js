@@ -45,7 +45,27 @@
   .bs-status { display:flex; justify-content:space-between; flex-wrap:wrap; gap:.4rem; font-weight:700; color:var(--muted); font-size:.95rem; }
   .bs-status .streak { color:var(--pop); }
   .bs-next { text-align:center; margin-top:.6rem; }
-  @media (max-width:520px) { .bs-grid { font-size:1.8rem } .bs-col { min-width:2.1rem } .bs-pad button { font-size:1.25rem; padding:.45rem 0 } }`;
+  @media (max-width:520px) { .bs-grid { font-size:1.8rem } .bs-col { min-width:2.1rem } .bs-pad button { font-size:1.25rem; padding:.45rem 0 } }
+  /* iPhone landscape: the sum on the left, the number pad on the right, all on one screen */
+  @media (orientation: landscape) and (max-height: 500px) {
+    .bs-game { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); column-gap:1.2rem; align-items:center;
+      grid-template-areas:"levels levels" "status status" "box pad" "q help" "table table" "fb fb" "next next"; }
+    .bs-game > .bs-levels { grid-area:levels; flex-wrap:nowrap; overflow-x:auto; justify-content:flex-start; margin-bottom:.3rem; padding-bottom:4px; }
+    .bs-game > .bs-levels button { flex:none; padding:.25rem .55rem; font-size:.8rem; }
+    .bs-game > .bs-levels button small { font-size:.68rem; }
+    .bs-game > .bs-status { grid-area:status; }
+    .bs-game > .bs-box { grid-area:box; }
+    .bs-game > .bs-q { grid-area:q; font-size:1.05rem; }
+    .bs-game > .bs-pad { grid-area:pad; margin:0; }
+    .bs-game > .bs-help { grid-area:help; }
+    .bs-game > .bs-table { grid-area:table; }
+    .bs-game > .feedback { grid-area:fb; }
+    .bs-game > .bs-next { grid-area:next; }
+    .bs-sum { margin:.3rem 0; }
+    .bs-grid { font-size:2rem; padding-top:2.2rem; }
+    .bs-pad { grid-template-columns:repeat(5, minmax(0, 3.3rem)); gap:.4rem; }
+    .bs-pad button { font-size:1.35rem; padding:.5rem 0; }
+  }`;
 
   function addCSS() {
     if (document.getElementById("busstop-css")) return;
@@ -146,6 +166,7 @@
 
   function game(el, opts) {
     addCSS();
+    el.classList.add("bs-game");
     const KEY = "busstop:" + (opts.id || "v1");
     let saved = store.get(KEY, { stars: [], best: [] });
     let level, sumNo, slips, levelSlips, d, n, steps, i, phase, sum, t0, timer, streak = 0, busy = false;

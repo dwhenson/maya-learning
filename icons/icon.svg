@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8b6cf2"/>
+      <stop offset="1" stop-color="#6c4ce0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".85" cy=".1" r=".7">
+      <stop offset="0" stop-color="#ff8fb0" stop-opacity=".75"/>
+      <stop offset="1" stop-color="#ff8fb0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <rect width="1024" height="1024" fill="url(#glow)"/>
+  <!-- algebra tiles: 3 rows of (x + 2), the area model -->
+  <g transform="translate(176 260)">
+    <g id="row">
+      <rect x="0" y="0" width="372" height="132" rx="30" fill="#cbb9ff" stroke="#ffffff" stroke-width="14"/>
+      <text x="186" y="100" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="104" fill="#2a2340">x</text>
+      <rect x="400" y="0" width="132" height="132" rx="30" fill="#ffe08a" stroke="#ffffff" stroke-width="14"/>
+      <rect x="560" y="0" width="132" height="132" rx="30" fill="#ffe08a" stroke="#ffffff" stroke-width="14"/>
+    </g>
+    <use href="#row" y="176"/>
+    <use href="#row" y="352"/>
+  </g>
+  <!-- sparkle -->
+  <path d="M842 150 L862 214 L926 234 L862 254 L842 318 L822 254 L758 234 L822 214 Z" fill="#ffc93c"/>
+  <path d="M170 790 L182 828 L220 840 L182 852 L170 890 L158 852 L120 840 L158 828 Z" fill="#ffffff" opacity=".85"/>
+</svg>

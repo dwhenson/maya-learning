@@ -1,5 +1,8 @@
 /* Shared stylesheet for every lesson and reference sheet. Friendly, bright, rounded. */
-@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,600;1,700&display=swap");
+/* Fonts are hosted with the site (assets/fonts, SIL Open Font License) so lessons work offline. */
+@font-face { font-family: "Fredoka"; font-style: normal; font-weight: 300 700; font-display: swap; src: url("fonts/fredoka-latin.woff2") format("woff2"); }
+@font-face { font-family: "Nunito"; font-style: normal; font-weight: 200 1000; font-display: swap; src: url("fonts/nunito-latin.woff2") format("woff2"); }
+@font-face { font-family: "Nunito"; font-style: italic; font-weight: 200 1000; font-display: swap; src: url("fonts/nunito-italic-latin.woff2") format("woff2"); }
 
 :root {
   --bg: #f6f2ff;
@@ -272,4 +275,50 @@ img, svg, video, iframe { max-width: 100%; }
   main { max-width: none; padding: 0; }
   .no-print, nav.lessons, .ask, .journey, .videos { display: none !important; }
   .card { box-shadow: none; break-inside: avoid; }
+}
+
+/* ---------- App on iPhone (safe areas: the notch and home bar) ---------- */
+main {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+  padding-bottom: max(5rem, calc(env(safe-area-inset-bottom) + 4rem));
+}
+.sound-toggle { right: max(1rem, env(safe-area-inset-right)); bottom: max(1rem, env(safe-area-inset-bottom)); }
+button, a, summary, label { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+html.standalone body { overscroll-behavior-y: none; }
+
+/* ---------- iPhone 12 landscape (844 × 390): short and wide ---------- */
+/* Less height means: smaller headings, tighter cards, a non-sticky step bar,
+   and side-by-side layouts for the games (in each component's own CSS). */
+@media (orientation: landscape) and (max-height: 500px) {
+  body { font-size: 16px; line-height: 1.5; }
+  main { max-width: 52rem; padding-top: max(.6rem, env(safe-area-inset-top)); }
+  .hero { padding: 0; }
+  .kicker { margin-bottom: .4rem; font-size: .7rem; }
+  h1 { font-size: 1.7rem; margin-bottom: .3rem; }
+  .lede { font-size: 1rem; max-width: 44rem; margin-bottom: .4rem; }
+  .hero .meta { margin: .2rem 0; }
+  .journey { position: static; margin: .6rem auto .4rem; padding: .3rem .5rem; }
+  .journey a { width: 2.1rem; height: 2.1rem; font-size: 1rem; }
+  .card { padding: .9rem 1.2rem 1rem; margin: 1rem 0; scroll-margin-top: .6rem; }
+  .card-head { margin-bottom: .3rem; gap: .6rem; }
+  .bubble { width: 2.3rem; height: 2.3rem; font-size: 1.2rem; border-radius: 12px; }
+  h2 { font-size: 1.25rem; }
+  p { margin: .4rem 0; }
+  .box { padding: .7rem 1rem; margin: .6rem 0; }
+  .display { font-size: 1.35rem; margin: .5rem 0; }
+  .video { max-width: 26rem; margin-left: auto; margin-right: auto; }
+  .video.short { max-width: 9rem; }
+  .videos { grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+  .feedback { padding: .6rem .9rem; margin-top: .5rem; }
+  .sound-toggle { width: 2.3rem; height: 2.3rem; font-size: 1rem; }
+  .practice-prompt { margin: .3rem 0 .5rem !important; }
+  .quiz ol { grid-template-columns: 1fr 1fr; }
+  .quiz { margin: .6rem 0; }
+  .lesson-list { grid-template-columns: 1fr 1fr; gap: .7rem; }
+  .lesson-list .card { margin: 0; }
+  .fb-form textarea { min-height: 4rem; }
+  .fb-moods { margin: .3rem 0 .5rem; }
+  nav.lessons { margin-top: 1rem; }
+  figure { margin: .6rem 0; }
 }

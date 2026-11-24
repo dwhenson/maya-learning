@@ -23,7 +23,8 @@
   .st-binlabel { font:600 1.1rem var(--display); text-align:center; margin-bottom:.4rem; }
   .st-binbody { display:flex; flex-direction:column; gap:.35rem; align-items:center; }
   .st-binbody .st-card { font-size:.95rem; padding:.25rem .6rem; box-shadow:none; cursor:default; }
-  @media (max-width:520px){ .st-bins{ grid-template-columns:1fr } .st-bin{ min-height:5rem } }`;
+  @media (max-width:520px){ .st-bins{ grid-template-columns:1fr } .st-bin{ min-height:5rem } }
+  @media (orientation: landscape) and (max-height: 500px) { .st-bins { grid-template-columns:repeat(auto-fit, minmax(9rem, 1fr)) } .st-bin { min-height:4.5rem; padding:.5rem } .st-binlabel { font-size:1rem } }`;
 
   function mount(el, opts) {
     if (!document.getElementById("sort-css")) {

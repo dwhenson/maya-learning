@@ -37,6 +37,7 @@
   .pb-choices button:hover { border-color:var(--accent); }
   .pb-stars { text-align:center; font-size:1.3rem; letter-spacing:.2em; }
   .pb-next { text-align:center; margin-top:.6rem; }
+  @media (orientation: landscape) and (max-height: 500px) { .pb-wrap { margin-top:1.8rem } .pb-read { font-size:1.2rem; margin:.5rem 0 0 } .pb-task { font-size:1rem } }
   @media (max-width:520px) { .pb-handle { width:16px; margin-left:-8px; font-size:0; border-width:2px } .pb-block { font-size:.6rem } .pb-wrap { height:48px } .pb-hundred::after { height:calc(48px + 1rem) } }`;
 
   const money = n => {

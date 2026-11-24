@@ -47,7 +47,8 @@
   .tb-count { display:flex; flex-wrap:wrap; gap:.6rem 1rem; align-items:center; justify-content:center; margin-top:1rem; }
   .tb-count label { font-weight:700; display:flex; align-items:center; gap:.4rem; white-space:nowrap; }
   .tb-actions { display:flex; gap:.6rem; justify-content:center; margin-top:1rem; flex-wrap:wrap; }
-  .tb-instr { font-weight:600; margin:.2rem 0 .8rem; }`;
+  .tb-instr { font-weight:600; margin:.2rem 0 .8rem; }
+  @media (orientation: landscape) and (max-height: 500px) { .tb-row { min-height:42px; padding:4px 8px } .tb-board { margin-top:.6rem } .tb-count, .tb-actions { margin-top:.6rem } }`;
 
   const rnd = (lo, hi) => lo + Math.floor(Math.random() * (hi - lo + 1));
   const ital = s => s.replace(/([a-z])/g, "<i>$1</i>");

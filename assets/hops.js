@@ -31,7 +31,8 @@
   .hp-choices button { font:800 1.3rem var(--serif); background:var(--surface); color:var(--ink); border:2px solid var(--rule); box-shadow:0 3px 0 var(--rule); min-width:4.5rem; }
   .hp-choices button:hover { border-color:var(--accent); }
   .hp-actions { text-align:center; margin-top:.8rem; }
-  @media (max-width:520px) { .hp-num { font-size:.8rem } .hp-sum { font-size:1.5rem } }`;
+  @media (max-width:520px) { .hp-num { font-size:.8rem } .hp-sum { font-size:1.5rem } }
+  @media (orientation: landscape) and (max-height: 500px) { .hp-line { height:120px } .hp-sum { font-size:1.5rem; margin:0 } }`;
 
   const rnd = (lo, hi) => lo + Math.floor(Math.random() * (hi - lo + 1));
   const neg = n => (n < 0 ? "−" + Math.abs(n) : String(n));

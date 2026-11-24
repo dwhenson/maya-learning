@@ -1,6 +1,6 @@
-# Only the lessons go on the website. Notes, mission and learning records stay in the repo.
+# Only the lessons go on the website (see build.sh). Notes, mission and learning records stay in the repo.
 [build]
-  command = "rm -rf dist && mkdir dist && cp -R index.html lessons assets reference dist/"
+  command = "bash build.sh"
   publish = "dist"
 
 # Always check for a fresh copy so new lessons and fixes show up straight away.
@@ -10,3 +10,14 @@
     Cache-Control = "public, max-age=0, must-revalidate"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+# The service worker must never be cached, so updates reach the app.
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json"

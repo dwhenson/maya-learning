@@ -46,7 +46,25 @@
   .te-slot.filled { border-style:solid; border-color:var(--good); background:var(--good-soft); color:var(--ink); }
   .te-chips { display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; min-height:3rem; }
   .te-chip { background:var(--pop); color:#fff; font:800 1.25rem var(--serif); border-radius:14px; padding:.2rem .8rem; box-shadow:0 4px 0 color-mix(in srgb, var(--pop) 60%, #000); touch-action:none; user-select:none; }
-  @media (max-width:520px) { .te-eq { font-size:1.15rem } .te-slot { min-width:3.4rem; height:2.3rem } }`;
+  @media (max-width:520px) { .te-eq { font-size:1.15rem } .te-slot { min-width:3.4rem; height:2.3rem } }
+  /* iPhone landscape: picture on the left, what to do on the right */
+  @media (orientation: landscape) and (max-height: 500px) {
+    .tri-play { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); column-gap:1rem; align-items:center; }
+    .tri-play svg { grid-row:1 / span 5; max-height:62vh; }
+    .te-stage { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); column-gap:1rem; align-items:center; }
+    .te-stage > svg { grid-row:1 / span 5; max-height:58vh; }
+    .te-stage > .te-solve { grid-column:1 / -1; }
+    .bl-box, .te-solve { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); column-gap:1rem; align-items:center;
+      grid-template-areas:"scale q" "scale moves" "base hist"; }
+    .bl-box .bl-scale, .te-solve .bl-scale { grid-area:scale; align-self:end; justify-self:stretch; width:100%; max-width:380px; margin:.4rem auto 0; }
+    .bl-box .bl-base, .te-solve .bl-base { grid-area:base; align-self:start; }
+    .bl-box .bl-q, .te-solve .bl-q { grid-area:q; }
+    .bl-box .bl-moves, .te-solve .bl-moves { grid-area:moves; }
+    .bl-box .bl-history, .te-solve .bl-history { grid-area:hist; }
+    .bl-pan { font-size:1.3rem; min-height:3.6rem; padding:.5rem .3rem .9rem; }
+    .te-eq { font-size:1.2rem; margin:.3rem 0; }
+    .te-slot { height:2.3rem; }
+  }`;
 
   function addCSS() {
     if (document.getElementById("triangle-css")) return;
@@ -124,7 +142,7 @@
   /* ---------- TrianglePlay ---------- */
   function play(el, opts) {
     addCSS();
-    el.classList.add("tri");
+    el.classList.add("tri", "tri-play");
     el.innerHTML = `<svg viewBox="0 0 320 230" role="img" aria-label="A triangle with corners you can drag"></svg>
       <p class="tri-sum" aria-live="polite"></p>
       <div class="tri-q"></div><div class="tri-choices"></div>
@@ -319,7 +337,7 @@
             return say(el, `Count the <i>${L}</i>s: ${xs} = ${ital(term(r.C, L))}. Then the numbers: ${ks || "none"}.`, "bad");
           }
           stage.querySelector(".te-choices").innerHTML = "";
-          stage.querySelector(".te-eq").innerHTML = ital(`${right} = 180`);
+          stage.querySelector(".te-eq").innerHTML = `<span>${ital(`${right} = 180`)}</span>`;
           stage.querySelector(".te-q").innerHTML = `<strong>Step 3:</strong> solve it on the balance.`;
           say(el, `✅ ${praise()} Now get <i>${L}</i> on its own.`, "good");
           const box = stage.querySelector(".te-solve");
